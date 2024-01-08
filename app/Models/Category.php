@@ -25,7 +25,6 @@ class Category extends Model
                 ],
                 [
                     'title' => $formData['title'],
-//                    'slug' => Str::slug($formData['title'], '-', null),
                     'category_id' => $formData['category_id'],
                     'icon' => $formData['icon'],
                     'description' => $formData['description'],
