@@ -64,6 +64,7 @@ class Category extends Model
 
     public function insertImageToFileTable1($path, $service_id)
     {
+
         return \App\Models\File::query()->updateOrCreate(
             [
                 'service_id' => $service_id,
