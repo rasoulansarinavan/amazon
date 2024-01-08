@@ -25,12 +25,10 @@ class Category extends Model
                 ],
                 [
                     'title' => $formData['title'],
-                    'slug' => Str::slug($formData['title'], '-', null),
+//                    'slug' => Str::slug($formData['title'], '-', null),
                     'category_id' => $formData['category_id'],
                     'icon' => $formData['icon'],
-                    'wage' => $formData['wage'],
                     'description' => $formData['description'],
-                    'user_level_id' => $formData['user_level_id']
                 ]
             );
 
@@ -43,7 +41,7 @@ class Category extends Model
                 $extension = $image->extension();
                 $image_name = 'image_categories_' . $service_id . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
                 $path = 'images/categories/' . $service_id . '/' . $image_name;
-                \Intervention\Image\Image::make($image)->save(public_path('images/categories/' . $service_id . '/' . $image_name), 40);
+                Image::make($image)->save(public_path('images/categories/' . $service_id . '/' . $image_name), 40);
                 $this->insertImageToFileTable1($path, $cat_id, $service_id);
             }
 
@@ -58,7 +56,7 @@ class Category extends Model
                     $extension = $image->extension();
                     $image_name = 'image_categories_' . $service_id . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
                     $path = 'images/categories/' . $service_id . '/' . $image_name;
-                    \Intervention\Image\Image::make($image)->save(public_path('images/categories/' . $service_id . '/' . $image_name), 40);
+                   Image::make($image)->save(public_path('images/categories/' . $service_id . '/' . $image_name), 40);
                     $this->insertImageToFileTable1($path, $cat_id, $service_id);
                 }
             }
@@ -87,7 +85,7 @@ class Category extends Model
         $extension = $categoryThumbnail->extension();
         $image_name = 'image_categories_' . $categoryId . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
         $path = 'images/categories/' . $categoryId . '/' . $image_name;
-        \Intervention\Image\Image::make($categoryThumbnail)->save(public_path($path),'50');
+       Image::make($categoryThumbnail)->save(public_path($path),'50');
         $this->removeOldImage($oldPhoto, $categoryId);
         $this->insertImageToFileTable1($path, $categoryId);
     }
