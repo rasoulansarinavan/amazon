@@ -112,10 +112,13 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-start ma-ts">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts position-relative">
                                             <button type="submit" class="btn  btn-primary add-success-noti-admin">
                                                 ذحیره
                                             </button>
+                                            <a href="{{route('admin.category')}}" class="btn  btn-warning position-absolute l-0 start-0">
+                                                لغو
+                                            </a>
                                         </div>
                                     </form>
                                 </div>
