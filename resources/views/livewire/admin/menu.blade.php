@@ -30,7 +30,7 @@
         <!-- Sidebar brand starts -->
         <div class="default-sidebar-brand">
             <a href="{{route('admin.dashboard')}}" class="logo justify-content-center">
-{{--                <img src="/backend/img/amazon.png"/>--}}
+                <img style="max-height: 140px !important" src="/backend/img/amazon.png"/>
             </a>
         </div>
         <!-- Sidebar brand starts -->
