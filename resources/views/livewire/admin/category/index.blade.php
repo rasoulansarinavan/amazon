@@ -63,7 +63,6 @@
                                     <th>تصویر</th>
                                     <th>عنوان</th>
                                     <th>دسته بندی</th>
-                                    <th>سطح دسترسی</th>
                                     <th>عملیات</th>
                                 </tr>
                                 </thead>
@@ -74,10 +73,17 @@
                                         <td class="sorting_1">
                                             <div class="media-box  align-items-center row">
                                                 <img src="/{{@$category->image->file}}"
-                                                     style="width: 307px;border-radius: 5%"
+                                                     style="width: 100px;border-radius: 5%"
                                                      class=" ms-2 media-avatar"
                                                      alt="Product">
                                             </div>
+                                        </td>
+                                        <td>{{ $category->title }}</td>
+                                        @if($category->special == 0)
+                                            <td>دسته والد</td>
+                                        @else
+                                            <td>{{$category->subCategories->title}}</td>
+                                        @endif
                                         <td>
                                             <div class="actions t1">
                                                 <a href="javascript:0"
@@ -91,14 +97,6 @@
                                                    data-bs-original-title="حذف">
                                                     <i class="icon-x-circle text-danger ms-2"></i>
                                                 </a>
-                                                <div class="form-check d-inline-flex">
-                                                    <input
-                                                        value="{{$category->id}}" @if($category->special !=0) checked
-                                                        @endif
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-original-title="ویژه"
-                                                        wire:change="special($event.target.value)" type="checkbox">
-                                                </div>
                                                 <div class="form-check d-inline-flex">
                                                     <input
                                                         value="{{$category->id}}"
@@ -124,20 +122,7 @@
                                                         data-bs-original-title="نمایش"
                                                         wire:change="show($event.target.value)" type="checkbox">
                                                 </div>
-                                                @if(@$category->video->id)
-                                                    <div class="form-check d-inline-flex">
-                                                        <input
-                                                            value="{{@$category->video->id}}"
-                                                            @if(@$category->video->active !=0) checked
-                                                            @endif
-                                                            data-bs-toggle="tooltip"
-                                                            data-bs-original-title="نمایش ویدیو"
-                                                            wire:change="VideoActive($event.target.value)"
-                                                            type="checkbox">
-                                                    </div>
-                                                @endif
                                             </div>
-
                                         </td>
                                     </tr>
                                 @endforeach
