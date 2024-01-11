@@ -146,9 +146,9 @@ class Index extends Component
         $category = Category::query()->where('id', $value)->first();
 
         if ($category->active == 0) {
-            Category::query()->where('id', $value)->update(['active' => 1]);
+            Category::query()->where('id', $value)->update(['show' => 1]);
         } elseif ($category->active == 1) {
-            Category::query()->where('id', $value)->update(['active' => 0]);
+            Category::query()->where('id', $value)->update(['show' => 0]);
         }
         $this->dispatchBrowserEvent('swal:alert-success');
     }
