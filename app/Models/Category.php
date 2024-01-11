@@ -51,7 +51,7 @@ class Category extends Model
 
             if ($image != $adminFileName && $cat_id != 0) {
                 if (isset($image)) {
-//                unlink($adminFileName);
+                unlink($adminFileName);
                     $extension = $image->extension();
                     $image_name = 'image_categories_' . $service_id . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
                     $path = 'images/categories/' . $service_id . '/' . $image_name;
@@ -78,7 +78,7 @@ class Category extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'id','category_id');
     }
 
     public function subCategories()

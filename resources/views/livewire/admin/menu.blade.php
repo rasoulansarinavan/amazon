@@ -4,8 +4,6 @@
         $rout_name=\Illuminate\Support\Facades\Route::current()->getName();
 //        $adminType=\Illuminate\Support\Facades\Auth::guard('admin')->user()->admin_type_id;
 
-/*dd($rout_name)*/
-
     @endphp
 
     <style>

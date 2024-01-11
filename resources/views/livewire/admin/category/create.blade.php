@@ -61,11 +61,11 @@
                                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 ma-t">
 
                                                 <div class="field-wrapper">
-                                    <textarea wire:model.defer="icon"
-                                              name="icon" id="icon"
-                                              class="form-control  @error('icon') error-input-border @enderror"
-                                              rows="2">
-                                    </textarea>
+                                                       <textarea wire:model.defer="icon"
+                                                                 name="icon" id="icon"
+                                                                 class="form-control  @error('icon') error-input-border @enderror"
+                                                                 rows="2">
+                                                       </textarea>
                                                     <div class="field-placeholder">آیکون</div>
                                                     @foreach($errors->get('icon') as $message)
                                                         <div wire:loading.remove
@@ -74,6 +74,7 @@
                                                 </div>
 
                                             </div>
+
                                         </div>
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                             <div class="field-wrapper" wire:ignore>
@@ -112,11 +113,13 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts position-relative">
+                                        <div
+                                            class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts position-relative">
                                             <button type="submit" class="btn  btn-primary add-success-noti-admin">
                                                 ذحیره
                                             </button>
-                                            <a href="{{route('admin.category')}}" class="btn  btn-warning position-absolute l-0 start-0">
+                                            <a href="{{route('admin.category')}}"
+                                               class="btn  btn-warning position-absolute l-0 start-0">
                                                 لغو
                                             </a>
                                         </div>

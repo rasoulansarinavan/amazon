@@ -56,8 +56,8 @@
 {{--    <!-- Row end -->--}}
 
 
-{{--    --}}{{--alerts--}}
-{{--    --}}{{--restrict other admins--}}
+{{--    alerts--}}
+{{--    restrict other admins--}}
 {{--    @if(\Illuminate\Support\Facades\Auth::user()->user_type_id==1)--}}
 {{--        <audio id="myAudio">--}}
 {{--            <source src="/beep-warning.mp3" type="audio/mpeg">--}}
@@ -69,7 +69,7 @@
 {{--        <div wire:poll.60000ms="latestTickets"></div>--}}
 {{--    @endif--}}
 
-{{--    --}}{{--alerts--}}
+{{--    alerts--}}
 
 {{--    @push('script')--}}
 

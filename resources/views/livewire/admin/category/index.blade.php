@@ -29,8 +29,129 @@
         }
 
     </style>
-    <div class=" gutters">
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+    <div class="row gutters">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+            <div class="card position-sticky" style="top: 0">
+                <div class="card-header">
+                    <div class="card-title">افزودن دسته بندی</div>
+                </div>
+                <div class="card-body">
+                    <div class="row gutters">
+                        <form
+                            wire:submit.prevent="saveCategory(Object.fromEntries(new FormData($event.target)))">
+                            <div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="field-wrapper">
+                                        <input name="title" id="title" value="{{@$title}}"
+                                               wire:model.defer="title"
+                                               class="form-control @error('title') error-input-border @enderror"
+                                               type="text">
+                                        <div class="field-placeholder">عنوان <span
+                                                class="text-danger">*</span>
+                                        </div>
+                                        @foreach ($errors->get('title') as $message)
+                                            <div wire:loading.remove
+                                                 class="text-white d-flex invalid-tooltip">{{$message}}</div>
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                    <div class="field-wrapper">
+                                        <select wire:ignore.self
+                                                wire:change="changeCategory($event.target.value)"
+                                                class="js-states"
+                                                wire:model.defer="category_id"
+                                                name="category_id" id="category_id"
+                                                title="Select Product Category"
+                                                data-live-search="true"
+                                                class="form-select @error('category_id') error-input-border @enderror">
+                                            <option selected disabled>انتخاب</option>
+                                            <option value="0">دسته والد</option>
+                                            @foreach($allCategory->where('category_id',0) as $category)
+                                                <option
+                                                    @if(isset($category->title))
+                                                        selected
+                                                    @endif
+                                                    value="{{ $category->id }}">{{ $category->title }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="field-placeholder">دسته والد <span
+                                                class="text-danger">*</span>
+                                        </div>
+                                        @foreach($errors->get('category_id') as $message)
+                                            <div wire:loading.remove
+                                                 class="text-white d-flex invalid-tooltip">{{$message}}</div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+
+                                    <div class="field-wrapper">
+                                                       <textarea wire:model.defer="icon"
+                                                                 name="icon" id="icon"
+                                                                 class="form-control  @error('icon') error-input-border @enderror"
+                                                                 rows="2">
+                                                       </textarea>
+                                        <div class="field-placeholder">آیکون</div>
+                                        @foreach($errors->get('icon') as $message)
+                                            <div wire:loading.remove
+                                                 class="text-white d-flex invalid-tooltip">{{$message}}</div>
+                                        @endforeach
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" wire:ignore>
+                                    <textarea name="description" id="description" wire:model.defer="description"
+                                              class="form-control @error('description') error-input-border @enderror"
+                                              type="text">
+                                       {{@$category->description}}
+                                    </textarea>
+                                    <div class="field-placeholder">توضیحات</div>
+                                    @foreach ($errors->get('description') as $message)
+                                        <div wire:loading.remove
+                                             class="text-white d-flex invalid-tooltip">{{$message}}</div>
+                                    @endforeach
+                                </div>
+
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper">
+                                    <input wire:model="file" type="file" name="file" id="file"
+                                           class="form-select @error('file') error-input-border @enderror">
+                                    <div class="field-placeholder">تصویر دسته بندی<span class="text-danger">*</span>
+                                    </div>
+                                    @foreach($errors->get('file') as $message)
+                                        <div wire:loading.remove
+                                             class="text-white d-flex invalid-tooltip">{{$message}}</div>
+                                    @endforeach
+                                    @if($oldPhoto)
+                                        <img class="ma-t" width="200" src="/{{$oldPhoto}}">
+                                    @endif
+                                    <div wire:loading wire:target="file" class="spinner-grow"
+                                         style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    @if ($file and in_array($fileExtension,$extensions) and !$oldPhoto)
+                                        <img class="ma-t" width="200" src="{{$file->temporaryUrl()}}">
+                                    @endif
+                                </div>
+                            </div>
+                            <div
+                                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts">
+                                <button type="submit" class="btn  btn-primary add-success-noti-admin">
+                                    ذخیره
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 ">
             <div class="card">
                 <div class="card-body">
                     @if(session('message'))
@@ -45,10 +166,6 @@
                             <div class="field-placeholder">جستجو <span class="text-danger">*</span></div>
                         </div>
                         <div class="d-flex">
-                            <a href="{{route('admin.category.create')}}" class="btn btn-success mb-3"
-                               style="margin-left: 20px">افزودن دسته بندی جدید <span
-                                    class="me-1 icon-plus-circle"></span>
-                            </a>
                             {{ $allCategory->links('layouts.pagination-admin') }}
                         </div>
                     </div>
@@ -67,6 +184,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                 @foreach($allCategory as $category)
                                     <tr role="row" class="odd position-relative">
                                         <td>{{ $category->id }}</td>
@@ -81,8 +199,8 @@
                                         <td>{{ $category->title }}</td>
                                         @if($category->special == 0)
                                             <td>دسته والد</td>
-                                        @else
-                                            <td>{{$category->subCategories->title}}</td>
+                                        @elseif(isset($category->category_id))
+                                            <td>{{@$category->category->title}}</td>
                                         @endif
                                         <td>
                                             <div class="actions t1">
@@ -128,13 +246,11 @@
                                 @endforeach
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                     {{ $allCategory->links('layouts.pagination-admin') }}
                 </div>
             </div>
-
         </div>
     </div>
     @push('script')
@@ -192,9 +308,5 @@
                 })
             })
         </script>
-        <script>
-
-            @endpush
-            </div>
-        </script>
+    @endpush
 </div>
