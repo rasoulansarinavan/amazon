@@ -49,6 +49,12 @@
                             <span class="menu-text">دسته بندی ها</span>
                         </a>
                     </li>
+                    <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
+                        <a href="{{route('admin.product')}}" class="current-page">
+                            <i class="icon-add-to-list"></i>
+                            <span class="menu-text">محصولات</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
