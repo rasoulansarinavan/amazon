@@ -51,7 +51,7 @@
                     </li>
                     <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
                         <a href="{{route('admin.product')}}" class="current-page">
-                            <i class="icon-add-to-list"></i>
+                            <i class="icon-dns"></i>
                             <span class="menu-text">محصولات</span>
                         </a>
                     </li>
