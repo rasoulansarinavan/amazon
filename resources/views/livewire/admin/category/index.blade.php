@@ -176,7 +176,7 @@
                                    aria-describedby="copy-print-csv_info">
                                 <thead>
                                 <tr role="row">
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>تصویر</th>
                                     <th>عنوان</th>
                                     <th>دسته بندی</th>
@@ -187,7 +187,7 @@
 
                                 @foreach($allCategory as $category)
                                     <tr role="row" class="odd position-relative">
-                                        <td>{{ $category->id }}</td>
+                                        <td>{{$loop->index+1}}</td>
                                         <td class="sorting_1">
                                             <div class="media-box  align-items-center row">
                                                 <img src="/{{@$category->image->file}}"
@@ -204,6 +204,11 @@
                                         @endif
                                         <td>
                                             <div class="actions t1">
+                                                <a href="{{route('admin.category.feature',$category->id)}}"
+                                                   data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                   data-bs-original-title="ویژگی">
+                                                    <i class="icon-layers2 text-warning ms-2"></i>
+                                                </a>
                                                 <a href="javascript:0"
                                                    wire:click="editCategory({{$category->id}},{{$category->category_id}})"
                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
