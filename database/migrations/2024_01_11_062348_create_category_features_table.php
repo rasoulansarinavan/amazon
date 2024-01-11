@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('category_features', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('type')->nullable();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }
