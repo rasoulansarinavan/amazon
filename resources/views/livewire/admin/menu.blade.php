@@ -46,13 +46,19 @@
                     <li class="@if($rout_name=='admin.category' or $rout_name=='admin.category.create') active @endif">
                         <a href="{{route('admin.category')}}" class="current-page">
                             <i class="icon-add-to-list"></i>
-                            <span class="menu-text">دسته بندی ها</span>
+                            <span class="menu-text">مدیزیت دسته بندی ها</span>
                         </a>
                     </li>
                     <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
                         <a href="{{route('admin.product')}}" class="current-page">
                             <i class="icon-dns"></i>
-                            <span class="menu-text">محصولات</span>
+                            <span class="menu-text">مدیزیت محصولات</span>
+                        </a>
+                    </li>
+                    <li class="@if($rout_name=='admin.brand' or $rout_name=='admin.product.brand') active @endif">
+                        <a href="{{route('admin.brand')}}" class="current-page">
+                            <i class="icon-add_circle"></i>
+                            <span class="menu-text">مدیزیت برندها</span>
                         </a>
                     </li>
                 </ul>
