@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryFeature extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 
     public function saveFeature($formData, $category_id, $feature_id)
@@ -20,6 +21,7 @@ class CategoryFeature extends Model
                 'title' => $formData['title'],
                 'description' => $formData['description'],
                 'category_id' => $category_id,
+                'type' => 'category',
             ]
         );
     }
