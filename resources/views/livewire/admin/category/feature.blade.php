@@ -56,25 +56,9 @@
                                     </div>
 
                                 </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="field-wrapper" wire:ignore>
-                                    <textarea name="description" id="description" wire:model.defer="description"
-                                              class="form-control @error('description') error-input-border @enderror"
-                                              type="text">
-                                       {{@$category->description}}
-                                    </textarea>
-                                        <div class="field-placeholder">توضیحات<span
-                                                class="text-danger">*</span>
-                                        </div>
-                                        @foreach ($errors->get('description') as $message)
-                                            <div wire:loading.remove
-                                                 class="text-white d-flex invalid-tooltip">{{$message}}</div>
-                                        @endforeach
-                                    </div>
-
-                                </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts">
+                            <div
+                                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-ts">
                                 <button type="submit" class="btn  btn-primary add-success-noti-admin">
                                     ذخیره
                                 </button>
@@ -110,8 +94,8 @@
                                 <thead>
                                 <tr role="row">
                                     <th>#</th>
-                                    <th>عنوان</th>
-                                    <th>توضیحات</th>
+                                    <th>عنوان ویژگی</th>
+                                    <th>دسته بندی</th>
                                     <th>عملیات</th>
                                 </tr>
                                 </thead>
@@ -120,7 +104,7 @@
                                     <tr role="row" class="odd position-relative">
                                         <td>{{$loop->index+1}}</td>
                                         <td>{{ $feature->title }}</td>
-                                        <td>{{ $feature->description }}</td>
+                                        <td>{{ $category->title }}</td>
                                         <td>
                                             <div class="actions t1">
                                                 <a href="javascript:0"
