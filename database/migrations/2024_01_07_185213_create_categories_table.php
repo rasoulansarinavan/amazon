@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('category_id')->default(0);
             $table->text('icon')->nullable();
             $table->boolean('special')->default(false);
+            $table->string('slug')->unique()->nullable();
             $table->timestamps();
         });
     }
