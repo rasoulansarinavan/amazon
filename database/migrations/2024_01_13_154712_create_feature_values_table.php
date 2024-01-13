@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('feature_values', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id');
+            $table->integer('feature_id');
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->string('value');
             $table->timestamps();
         });
     }
