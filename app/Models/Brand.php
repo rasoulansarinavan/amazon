@@ -34,7 +34,7 @@ class Brand extends Model
             if (!\Illuminate\Support\Facades\File::exists($path)) {
                 \Illuminate\Support\Facades\File::makeDirectory($path);
             }
-            if ($brandId == 0) {
+            if ($brand_id == 0) {
                 $extension = $image->extension();
                 $image_name = 'image_brands_' . $brandId . '_' . '_brands_' . Str::random(10) . time() . '.' . $extension;
                 $path = 'images/brands/' . $brandId . '/' . $image_name;
@@ -72,5 +72,9 @@ class Brand extends Model
                 'file' => $path,
             ]
         );
+    }
+    public function image()
+    {
+        return $this->belongsTo(\App\Models\File::class, 'id', 'service_id')->where('type', '=', 'brand');
     }
 }
