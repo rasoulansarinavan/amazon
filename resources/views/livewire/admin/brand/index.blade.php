@@ -54,7 +54,6 @@
                                                  class="text-white d-flex invalid-tooltip">{{$message}}</div>
                                         @endforeach
                                     </div>
-
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="field-wrapper">
@@ -70,7 +69,6 @@
                                                  class="text-white d-flex invalid-tooltip">{{$message}}</div>
                                         @endforeach
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">

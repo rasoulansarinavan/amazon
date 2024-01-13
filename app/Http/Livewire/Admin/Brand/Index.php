@@ -71,12 +71,12 @@ class Index extends Component
     public function editBrand($brand_id)
     {
         $brand = Brand::query()->where('id', $brand_id)->first();
-        $image = File::query()->where(['type' => 'brand', 'id' => $brand_id])->first();
+        $image = File::query()->where(['type' => 'brand', 'service_id' => $brand_id])->first();
 
         @$this->file = $image->file;
         @$this->oldPhoto = $image->file;
 
-        $this->persian_name = $brand->title;
+        $this->persian_name = $brand->persian_name;
         $this->original_name = $brand->original_name;
         $this->brand_id = $brand->id;
     }
@@ -86,9 +86,9 @@ class Index extends Component
         $brand = Brand::query()->where('id', $value)->first();
 
         if ($brand->status == 0) {
-            Category::query()->where('id', $value)->update(['status' => 1]);
+            Brand::query()->where('id', $value)->update(['status' => 1]);
         } elseif ($brand->status == 1) {
-            Category::query()->where('id', $value)->update(['status' => 0]);
+            Brand::query()->where('id', $value)->update(['status' => 0]);
         }
         $this->dispatchBrowserEvent('swal:alert-success');
     }
@@ -103,12 +103,23 @@ class Index extends Component
     public function delete($brand_id)
     {
         Brand::query()->where('id', $brand_id)->delete();
-        File::query()->where(['type' => 'brand', 'id' => $brand_id])->delete();
+        File::query()->where(['type' => 'brand', 'service_id' => $brand_id])->delete();
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
     public function render()
     {
-        return view('livewire.admin.brand.index')->layout('layouts.app-admin');
+        $brands = Brand::query()->get();
+        $allBrands = Brand::query()->with('image')->orderBy('id');
+
+        if ($this->search) {
+            $allBrands = $allBrands
+                ->Where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('id', 'like', '%' . $this->search . '%');
+        }
+        return view('livewire.admin.brand.index', [
+            'allBrands' => $allBrands->paginate(10),
+            'brands' => $brands
+        ])->layout('layouts.app-admin');
     }
 }
