@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('amount')->nullable();
+            $table->integer('delivery_time')->nullable();
+            $table->tinyInteger('status')->default(false);
             $table->timestamps();
         });
     }
