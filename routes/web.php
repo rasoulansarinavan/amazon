@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'
         Route::get('/product', \App\Http\Livewire\Admin\Product\Index::class)->name('product');
         Route::get('/product/create', \App\Http\Livewire\Admin\Product\Create::class)->name('product.create');
         Route::get('/brand', \App\Http\Livewire\Admin\Brand\Index::class)->name('brand');
+        Route::get('/delivery', \App\Http\Livewire\Admin\Delivery\Index::class)->name('delivery');
 
     });
 });
