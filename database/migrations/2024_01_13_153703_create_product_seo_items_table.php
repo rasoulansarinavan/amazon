@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('product_seo_items', function (Blueprint $table) {
             $table->id();
+            $table->string('meta_name');
+            $table->text('meta_keywords');
+            $table->text('meta_description');
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
