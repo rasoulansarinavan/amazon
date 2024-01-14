@@ -1,24 +1,24 @@
-{{--<div class="page-header">--}}
+<div class="page-header">
 {{--    @php--}}
 {{--        $admin=\Illuminate\Support\Facades\Auth::guard('admin')->user()--}}
 {{--    @endphp--}}
-{{--    <div class="row gutters">--}}
-{{--        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-9">--}}
+    <div class="row gutters">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-9">
 
-{{--            <!-- Search container start -->--}}
-{{--            <div class="search-container">--}}
+            <!-- Search container start -->
+            <div class="search-container">
 
-{{--                <!-- Toggle sidebar start -->--}}
-{{--                <div class="toggle-sidebar" id="toggle-sidebar">--}}
-{{--                    <i class="icon-menu"></i>--}}
-{{--                </div>--}}
-{{--                <!-- Toggle sidebar end -->--}}
+                <!-- Toggle sidebar start -->
+                <div class="toggle-sidebar" id="toggle-sidebar">
+                    <i class="icon-menu"></i>
+                </div>
+                <!-- Toggle sidebar end -->
 
-{{--            </div>--}}
-{{--            <!-- Search container end -->--}}
+            </div>
+            <!-- Search container end -->
 
-{{--        </div>--}}
-{{--        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-3">--}}
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-3">
 
 {{--            <!-- Header actions start -->--}}
 {{--            <ul class="header-actions">--}}
@@ -51,8 +51,8 @@
 {{--            </ul>--}}
 {{--            <!-- Header actions end -->--}}
 
-{{--        </div>--}}
-{{--    </div>--}}
+        </div>
+    </div>
 {{--    <!-- Row end -->--}}
 
 
@@ -114,4 +114,4 @@
 {{--        </script>--}}
 {{--    @endpush--}}
 
-{{--</div>--}}
+</div>
