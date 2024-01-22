@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('payment_id')->nullable()->constrained('payments')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('delivery_id')->nullable()->constrained('delivery')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('delivery_id')->nullable()->constrained('deliveries')->onUpdate('cascade')->onDelete('cascade');
             $table->tinyInteger('order_status')->default(0);
+            $table->text('address');
             $table->timestamps();
         });
     }
