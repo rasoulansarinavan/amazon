@@ -67,10 +67,10 @@
                             <span class="menu-text">روش های ارسال</span>
                         </a>
                     </li>
-                    <li class="@if($rout_name=='admin.delivery') active @endif">
-                        <a href="{{route('admin.delivery')}}" class="current-page">
-                            <i class="icon-address"></i>
-                            <span class="menu-text">روش های ارسال</span>
+                    <li class="@if($rout_name=='admin.order') active @endif">
+                        <a href="{{route('admin.order')}}" class="current-page">
+                            <i class="note-icon-orderedlist"></i>
+                            <span class="menu-text">مدیریت سفارشات</span>
                         </a>
                     </li>
                 </ul>
