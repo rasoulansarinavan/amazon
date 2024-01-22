@@ -46,19 +46,31 @@
                     <li class="@if($rout_name=='admin.category' or $rout_name=='admin.category.create') active @endif">
                         <a href="{{route('admin.category')}}" class="current-page">
                             <i class="icon-add-to-list"></i>
-                            <span class="menu-text">مدیزیت دسته بندی ها</span>
+                            <span class="menu-text">مدیریت دسته بندی ها</span>
                         </a>
                     </li>
                     <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
                         <a href="{{route('admin.product')}}" class="current-page">
                             <i class="icon-dns"></i>
-                            <span class="menu-text">مدیزیت محصولات</span>
+                            <span class="menu-text">مدیریت محصولات</span>
                         </a>
                     </li>
                     <li class="@if($rout_name=='admin.brand' or $rout_name=='admin.product.brand') active @endif">
                         <a href="{{route('admin.brand')}}" class="current-page">
                             <i class="icon-add_circle"></i>
-                            <span class="menu-text">مدیزیت برندها</span>
+                            <span class="menu-text">مدیریت برندها</span>
+                        </a>
+                    </li>
+                    <li class="@if($rout_name=='admin.delivery') active @endif">
+                        <a href="{{route('admin.delivery')}}" class="current-page">
+                            <i class="icon-address"></i>
+                            <span class="menu-text">روش های ارسال</span>
+                        </a>
+                    </li>
+                    <li class="@if($rout_name=='admin.delivery') active @endif">
+                        <a href="{{route('admin.delivery')}}" class="current-page">
+                            <i class="icon-address"></i>
+                            <span class="menu-text">روش های ارسال</span>
                         </a>
                     </li>
                 </ul>
