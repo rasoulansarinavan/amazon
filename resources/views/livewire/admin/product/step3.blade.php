@@ -5,7 +5,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 
                 <div class="field-wrapper">
-                    <input type="text" placeholder="" name="meta_name" value="{{@$service->seo->meta_name}}">
+                    <input type="text" placeholder="" name="meta_name" value="{{@$product->seo->meta_name}}">
                     <div class="field-placeholder">نام متا<span
                             class="text-danger">*</span></div>
                 </div>
@@ -18,7 +18,7 @@
 
                 <div class="field-wrapper" wire:ignore>
                     <input type="text" placeholder="Enter Keywords"
-                           value="{{@$service->seo->meta_keywords}}" data-role="tagsinput" name="meta_keywords">
+                           value="{{@$product->seo->meta_keywords}}" data-role="tagsinput" name="meta_keywords">
                     <div class="field-placeholder">کلمات کلیدی متا<span
                             class="text-danger">*</span></div>
                 </div>
@@ -34,7 +34,7 @@
                         <span
                             class="text-danger">*</span>
                     </div>
-                    <textarea {{--class="summernote"--}} name="meta_description">{{@$service->seo->meta_description}}</textarea>
+                    <textarea {{--class="summernote"--}} name="meta_description">{{@$product->seo->meta_description}}</textarea>
                 </div>
                 @foreach ($errors->get('meta_description') as $message)
                     <span wire:loading.remove
