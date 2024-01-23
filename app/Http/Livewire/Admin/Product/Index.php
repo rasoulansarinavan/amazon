@@ -24,10 +24,10 @@ class Index extends Component
     {
         $product = Product::query()->where('id', $value)->first();
 
-        if ($product->active == 0) {
-            Product::query()->where('id', $value)->update(['active' => 1]);
-        } elseif ($product->active == 1) {
-            Product::query()->where('id', $value)->update(['active' => 0]);
+        if ($product->show == 0) {
+            Product::query()->where('id', $value)->update(['show' => 1]);
+        } elseif ($product->show == 1) {
+            Product::query()->where('id', $value)->update(['show' => 0]);
         }
         $this->dispatchBrowserEvent('swal:alert-success');
     }
