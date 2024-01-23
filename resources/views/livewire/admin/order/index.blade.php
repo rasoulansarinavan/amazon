@@ -45,9 +45,7 @@
                                     <td>{{$order->delivery->name}}</td>
                                     <td>
                                         <div class="actions" style="font-size: 20px">
-                                            <a href="{{route('admin.product.create')}}/?product={{$product->id}}"
-                                               data-bs-toggle="tooltip" data-bs-placement="top"
-                                               data-bs-original-title="ویرایش">
+                                            <a>
                                                 <i class="icon-edit1 text-info ms-2"></i>
                                             </a>
                                         </div>
@@ -57,7 +55,7 @@
                             </tbody>
                         </table>
                     </div>
-                      {{ $products->links('layouts.pagination-admin') }}
+{{--                      {{ $orders->links('layouts.pagination-admin') }}--}}
                 </div>
             </div>
         </div>
