@@ -67,7 +67,7 @@
                                             </div>
                                             <div class="form-check d-inline-flex">
                                                 <input
-                                                    value="{{$product->id}}" @if($product->active !=0) checked
+                                                    value="{{$product->id}}" @if($product->show !=0) checked
                                                     @endif
                                                     data-bs-toggle="tooltip"
                                                     data-bs-original-title="نمایش"
