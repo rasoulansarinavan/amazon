@@ -29,18 +29,17 @@ class Create extends Component
 
     public function mount()
     {
-
         if ($_GET and $_GET['product']) {
             $product_id = $_GET['product'];
             $product = $this->product = Product::query()->where('id', $product_id)->firstOrFail();
             $this->product_id = $product->id;
             $this->features = $product->featureValue;
 
-            $this->images = File::query()->where('service_id', $product_id)->get();
-//            dd($this->images);
-            foreach ($this->images as $key => $value) {
-                $this->images[] = $this->photos[] = $this->oldPhotos = $value->path;
-            }
+            $this->images = File::query()->where(['service_id'=> $product_id,'type'=>'product'])->get();
+
+//            foreach ($this->images as $key => $value) {
+//                $this->images[] = $this->photos[] = $this->oldPhotos = $value->path;
+//            }
         }
         $this->categories = Category::all();
     }

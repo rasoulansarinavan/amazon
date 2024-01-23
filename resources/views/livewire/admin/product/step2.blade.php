@@ -18,7 +18,7 @@
                     </div>
                     @if($images)
                         @forelse($images as $image)
-                            <img width="400" src="/images/products/large/{{$product_id}}/{{$image}}">
+                            <img width="200" src="/images/products/large/{{$product_id}}/{{$image->file}}">
                         @empty
                         @endforelse
                     @endif
@@ -29,7 +29,7 @@
                         </div>
                         @forelse($photos as $photo)
                             <img width="400"
-                                {{--                                 src="{{$photo->temporaryUrl()}}"--}}
+                                 src="{{$photo->temporaryUrl()}}"
                             >
                         @empty
                         @endforelse

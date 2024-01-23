@@ -60,8 +60,7 @@
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                 <div class="field-wrapper">
                     <div class="input-group">
-                        <input name="discount" id="discount" value="{{@$discount}}"
-                               wire:model.defer="discount"
+                        <input name="discount" id="discount" value="{{@$product->discount}}"
                                class="form-control @error('discount') error-input-border @enderror"
                                type="number">
                         <span class="input-group-text">
@@ -80,12 +79,8 @@
             </div>
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="field-wrapper" wire:ignore>
-                                    <textarea name="long_description" id="long_description"
-                                              wire:model.defer="long_description"
-                                              class="summernote form-control @error('long_description') error-input-border @enderror"
-                                              type="text">
-                                       {{@$category->long_description}}
-                                    </textarea>
+                                    <textarea name="long_description" id="long_description" class="summernote form-control @error('long_description') error-input-border @enderror"
+                                              type="text">{{@$product->long_description}}</textarea>
 
                     <div class="field-placeholder">توضیحات</div>
                     @foreach ($errors->get('long_description') as $message)
