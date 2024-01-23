@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('deliveries', function (Blueprint $table) {
-            $table->longText('description')->after('name');
+            $table->longText('description')->after('name')->nullable();
         });
     }
 
