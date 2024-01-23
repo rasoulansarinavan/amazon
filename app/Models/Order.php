@@ -13,7 +13,7 @@ class Order extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'id', 'product_id');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
     public function payment()
@@ -23,6 +23,6 @@ class Order extends Model
 
     public function delivery()
     {
-        return $this->belongsTo(delivery::class, 'id', 'delivery_id');
+        return $this->belongsTo(delivery::class, 'delivery_id', 'id');
     }
 }
