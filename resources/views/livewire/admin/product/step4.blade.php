@@ -5,17 +5,11 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 @forelse(@$features as $feature)
                     <div class="field-wrapper">
-                        {{--                        @forelse(@$feature->featureId as $key => $value )--}}
                         <input type="text" placeholder=" ویژگی {{$feature->title}} را وارد کنید"
                                name="{{$feature->title}}_{{$feature->id}}"
-                               value="{{@$feature->value}}">
-
+                               value="{{@$feature->title}}">
                         <div class="field-placeholder">{{$feature->title}}
-                            {{--                                {{@$value->title}}--}}
-                            <span
-                                class="text-danger">*</span></div>
-                        {{--                        @empty--}}
-                        {{--                        @endforelse--}}
+                            <span class="text-danger">*</span></div>
                     </div>
                     @foreach($errors->get($feature->{'title'}) as $message)
                         <span wire:loading.remove
