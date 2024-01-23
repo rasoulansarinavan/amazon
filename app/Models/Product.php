@@ -32,6 +32,19 @@ class Product extends Model
                     'discount' => $formData['discount'],
                 ]
             );
+
+            ProductSeoItem::query()->updateOrCreate(
+                [
+                    'id' => $product_id
+                ],
+                [
+                    'meta_name' => $formData['meta_name'],
+                    'meta_keywords' => $formData['meta_keywords'],
+                    'meta_description' => $formData['meta_description'],
+                    'product_id' => $product->id
+                ]
+            );
+
             foreach ($features as $key => $value) {
                 $featureId = explode('_', $key)[1];
                 $featureValue = explode('_', $key)[0];
