@@ -34,7 +34,6 @@ class Create extends Component
             $product = $this->product = Product::query()->where('id', $product_id)->firstOrFail();
             $this->product_id = $product->id;
             $this->features = $product->featureValue;
-
             $this->images = File::query()->where(['service_id'=> $product_id,'type'=>'product'])->get();
 
 //            foreach ($this->images as $key => $value) {
