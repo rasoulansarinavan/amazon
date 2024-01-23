@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('amount')->nullable();
             $table->integer('delivery_time')->nullable();
-            $table->tinyInteger('status')->default(false);
+            $table->tinyInteger('active')->default(false);
             $table->timestamps();
         });
     }
