@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Features;
+use App\Models\FeatureValues;
 use App\Models\File;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
@@ -16,9 +18,11 @@ class Create extends Component
     use WithFileUploads;
 
     public $step1 = true, $step2 = false, $step3 = false, $step4 = false;
-    public $title = '', $price = '', $discount = '', $long_description = '';
+    public $title = '', $price = '', $discount = '', $long_description = '', $brand_id;
     public $categories = [];
+    public $featureValue = [];
     public $features = [];
+    public $brands = [];
     public $photos = [], $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhotos = [];
     public $value;
     public $images = [];
@@ -33,14 +37,15 @@ class Create extends Component
             $product_id = $_GET['product'];
             $product = $this->product = Product::query()->where('id', $product_id)->firstOrFail();
             $this->product_id = $product->id;
-            $this->features = $product->featureValue;
-            $this->images = File::query()->where(['service_id'=> $product_id,'type'=>'product'])->get();
-
+            $this->features = FeatureValues::query()->where('product_id', $product_id)->get();
+            $this->featureValue = $product->featureValue;
+            $this->images = File::query()->where(['service_id' => $product_id, 'type' => 'product'])->get();
 //            foreach ($this->images as $key => $value) {
 //                $this->images[] = $this->photos[] = $this->oldPhotos = $value->path;
 //            }
         }
         $this->categories = Category::all();
+        $this->brands = Brand::all();
     }
 
     public function updatedPhotos()
@@ -49,7 +54,7 @@ class Create extends Component
         foreach ($this->photos as $photo) {
             $this->fileExtension = $photo->getClientOriginalExtension();
             $this->validate([
-                'photos' => 'image|mimes:jpeg,jpg,png,gif,webp|max:1024|dimensions:min_width=1200,min_height=800,max_width=1200,max_height=800', // 1MB Max
+                'photos' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024|dimensions:min_width=1200,min_height=800,max_width=1200,max_height=800', // 1MB Max
             ], [
                 'photos.required' => 'فیلد ضروری',
                 'photos.max' => 'حداکثر حجم تصویر : 1MB',
@@ -62,13 +67,15 @@ class Create extends Component
 
     public function step1($formData)
     {
+//        dd($formData);
         //Laravel | Unique validation where clause
         //https://stackoverflow.com/questions/49211988/laravel-unique-validation-where-clause
         $validator = Validator::make($formData, [
             'price' => 'required|integer',
-            'discount' => 'required|integer',
+            'discount' => 'integer',
             'title' => 'required|unique:products,title,' . $this->product_id . '| string | max: 50 ',
             'category_id' => 'required | integer | exists:categories,id',
+            'brand_id' => 'required | integer | exists:brands,id',
             'long_description' => 'required | string',
         ], [
             '*.required' => 'فیلد ضروری',
