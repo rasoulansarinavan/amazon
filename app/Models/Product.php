@@ -80,7 +80,7 @@ class Product extends Model
             $image_name = str_replace(' ', '_', $product->title) . '_' . time() + rand(0, 12312) . '.' . $item->extension();
 
             Image::make($item)->save($path_thumbnail . '/' . $image_name, 95);
-            Image::make($item)->save($path_large . '/' . $image_name, 95);
+            Image::make($item)->save($path_large . '/' . $image_name, 75);
 
             \App\Models\File::query()->create(
                 [
