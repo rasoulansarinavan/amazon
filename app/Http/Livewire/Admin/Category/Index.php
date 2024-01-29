@@ -30,7 +30,7 @@ class Index extends Component
         $this->oldPhoto = '';
         $this->fileExtension = $this->file->getClientOriginalExtension();
         $this->validate([
-            'file' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
         ], [
             'file.required' => 'فیلد ضروری',
             'file.max' => 'حداکثر حجم تصویر : 1MB',
@@ -56,7 +56,7 @@ class Index extends Component
             'category_id' => 'required',
             'icon' => 'string',
             'description' => 'string',
-            'file' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
         ],
             [
                 '*.required' => 'فیلد ضروری',
