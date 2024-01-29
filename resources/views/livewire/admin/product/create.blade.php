@@ -19,7 +19,8 @@
                             <a href="{{route('admin.product')}}" class="btn btn-outline-success"
                                style="float: left">محصولات<span></span>
                             </a>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist"
+                            style=" padding: 0.09rem;">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link {{$step1 ? 'active' : '' }}" id="first-tab" data-bs-toggle="tab"
                                        disabled
