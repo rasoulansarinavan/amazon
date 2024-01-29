@@ -26,7 +26,7 @@ class Index extends Component
         $this->oldPhoto = '';
         $this->fileExtension = $this->file->getClientOriginalExtension();
         $this->validate([
-            'file' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
         ], [
             'file.required' => 'فیلد ضروری',
             'file.max' => 'حداکثر حجم تصویر : 1MB',
@@ -41,7 +41,7 @@ class Index extends Component
         $validator = Validator::make($formData, [
             'persian_name' => 'required',
             'original_name' => 'required',
-            'file' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
         ],
             [
                 '*.required' => 'فیلد ضروری',
@@ -65,7 +65,7 @@ class Index extends Component
         $this->dispatchBrowserEvent('swal:alert-success');
         $this->persian_name = '';
         $this->original_name = '';
-        $this->file = [];
+        $this->file = '';
     }
 
     public function editBrand($brand_id)

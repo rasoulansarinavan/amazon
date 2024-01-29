@@ -82,7 +82,7 @@ class Index extends Component
         $this->category_id = '';
         $this->icon = '';
         $this->description = '';
-        $this->file = [];
+        $this->file = '';
     }
 
     public function editCategory($cat_id, $category_id)
