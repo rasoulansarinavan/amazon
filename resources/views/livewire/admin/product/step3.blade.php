@@ -5,7 +5,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 
                 <div class="field-wrapper">
-                    <input type="text" placeholder="" name="meta_name" value="{{@$product->seo->meta_name}}">
+                    <input type="text" name="meta_name" value="{{@$product->seo->meta_name}}">
                     <div class="field-placeholder">نام متا<span
                             class="text-danger">*</span></div>
                 </div>
@@ -48,7 +48,7 @@
                         <button type="button" class="btn btn-warning" wire:click="backToStep2">مرحله
                             قبل
                         </button>
-                        <button class="btn btn-success me-3">ذخیره
+                        <button class="btn btn-success me-3">مرحله بعد
                         </button>
                     </div>
                 </div>
