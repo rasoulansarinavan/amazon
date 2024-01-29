@@ -21,7 +21,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-actions-footer">
                     <div class="text-start">
-                        <button type="button" class="btn btn-warning" wire:click="backToStep2">مرحله
+                        <button type="button" class="btn btn-warning" wire:click="backToStep3">مرحله
                             قبل
                         </button>
                         <button class="btn btn-success me-3">ذخیره
