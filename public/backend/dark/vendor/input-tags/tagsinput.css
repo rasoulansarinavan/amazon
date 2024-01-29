@@ -4,10 +4,10 @@
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
-	color: #495057;
-	background-color: #fff;
+	color:#1e3348;
+	background-color: #1e3348;
 	background-clip: padding-box;
-	border: 1px solid #ced4da;
+	border: 1px solid #424665;
 	border-radius: 2px;
 	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
