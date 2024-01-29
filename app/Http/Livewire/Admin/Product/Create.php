@@ -99,15 +99,14 @@ class Create extends Component
     {
         if (!$this->oldPhotos) {
             $this->validate([
-                'photos.*' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+                'photos' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
             ], [
-                'photos.*.required' => 'فیلد ضروری',
-                'photos.*.max' => 'حداکثر حجم تصویر : 1MB',
-                'photos.*.dimensions' => 'ایعاد تصاویر باید w:1200 , h:800 px باشد',
-                'photos.*.image' => 'پسوندهای قابل قبول: png',
+                'photos.required' => 'فیلد ضروری',
+                'photos.max' => 'حداکثر حجم تصویر : 1MB',
+                'photos.dimensions' => 'ایعاد تصاویر باید w:1200 , h:800 px باشد',
+                'photos.image' => 'پسوندهای قابل قبول: png',
             ]);
         }
-
         $this->step2 = false;
         $this->step3 = true;
     }
