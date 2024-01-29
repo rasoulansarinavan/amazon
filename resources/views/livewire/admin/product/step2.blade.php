@@ -1,19 +1,22 @@
 <div class="tab-pane fade {{$step2 ? 'active show' : '' }}" id="second" role="tabpanel">
-    <form wire:submit.prevent="step2">
         <div class="field-wrapper">
             <div class="input-group" style="direction: ltr">
                 <input accept="image/png, image/gif, image/jpeg , image/webp" type="file" multiple wire:model="photos"
                        name="photos"
-                       class="form-control" id="inputGroupFile01">
+                       class="form-control @error('photos') error-input-border @enderror" id="inputGroupFile01">
             </div>
-            @error('photos.*') <span class="alert alert-danger mt-2 d-block">{{ $message }}</span> @enderror
+            @foreach ($errors->get('photos') as $message)
+                <span style="float: left" wire:loading.remove
+                      class="alert alert-danger">{{ $message}}</span>
+            @endforeach
+{{--            @error('photos.*') <span class="alert alert-danger mt-2 d-block">{{ $message }}</span> @enderror--}}
             <div class="field-wrapper">
                 <div class="d-flex align-items-start justify-content-between">
                     <div class="alert alert-success">
                         <ul style="list-style: inherit" class="p-2">
                             <li>حداکثر حجم تصویر : 1MB</li>
                             <li>ایعاد تصاویر باید w:573 , h:322 px باشد</li>
-                            <li>پسوندهای قابل قبول: png</li>
+                            <li>پسوندهای قابل قبول: jpeg,jpg,png,gif,webp</li>
                         </ul>
                     </div>
                     @if($images)
@@ -28,9 +31,11 @@
                             <span class="visually-hidden">Loading...</span>
                         </div>
                         @forelse($photos as $photo)
-                            <img width="400"
-                                 src="{{$photo->temporaryUrl()}}"
-                            >
+                            <div class="row">
+                            <img src="{{$photo->temporaryUrl()}}"
+                                style="width: 400px!important;height: 200px!important;"
+                                >
+                            </div>
                         @empty
                         @endforelse
                     @endif
@@ -44,11 +49,10 @@
                 <div class="text-start">
                     <button class="btn btn-warning" wire:click="backToStep1">مرحله قبل
                     </button>
-                    <button type="submit" class="btn btn-primary me-3">مرحله بعد
+                    <button class="btn btn-primary me-3" wire:click="step2">مرحله بعد
                     </button>
                 </div>
             </div>
         </div>
-    </form>
 
 </div>
