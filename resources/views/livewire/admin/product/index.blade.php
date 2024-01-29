@@ -6,7 +6,7 @@
                     <div class="table-responsive">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="field-wrapper">
-                                <input style="background: #ffffff" class="form-control" type="text"
+                                <input style="background: #384d76" class="form-control" type="text"
                                        wire:model.debounce.500ms="search">
                                 <div class="field-placeholder">جستجو بر اساس نام<span class="text-danger">*</span></div>
                             </div>
