@@ -26,6 +26,7 @@ class Product extends Model
                 [
                     'title' => $formData['title'],
                     'category_id' => $formData['category_id'],
+                    'brand_id' => $formData['brand_id'],
                     'long_description' => $formData['long_description'],
                     'slug' => Str::slug($formData['title']),
                     'price' => $formData['price'],
