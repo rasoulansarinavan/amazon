@@ -49,16 +49,16 @@
                             <span class="menu-text">مدیریت دسته بندی ها</span>
                         </a>
                     </li>
-                    <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
-                        <a href="{{route('admin.product')}}" class="current-page">
-                            <i class="icon-dns"></i>
-                            <span class="menu-text">مدیریت محصولات</span>
-                        </a>
-                    </li>
                     <li class="@if($rout_name=='admin.brand' or $rout_name=='admin.product.brand') active @endif">
                         <a href="{{route('admin.brand')}}" class="current-page">
                             <i class="icon-add_circle"></i>
                             <span class="menu-text">مدیریت برندها</span>
+                        </a>
+                    </li>
+                    <li class="@if($rout_name=='admin.product' or $rout_name=='admin.product.create') active @endif">
+                        <a href="{{route('admin.product')}}" class="current-page">
+                            <i class="icon-dns"></i>
+                            <span class="menu-text">مدیریت محصولات</span>
                         </a>
                     </li>
                     <li class="@if($rout_name=='admin.delivery') active @endif">
@@ -71,6 +71,12 @@
                         <a href="{{route('admin.order')}}" class="current-page">
                             <i class="note-icon-orderedlist"></i>
                             <span class="menu-text">مدیریت سفارشات</span>
+                        </a>
+                    </li>
+                    <li class="@if($rout_name=='admin.store') active @endif">
+                        <a href="{{route('admin.store')}}" class="current-page">
+                            <i class="note-icon-special-character"></i>
+                            <span class="menu-text">مدیریت انبار</span>
                         </a>
                     </li>
                 </ul>
