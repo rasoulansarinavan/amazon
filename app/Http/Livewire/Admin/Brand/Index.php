@@ -2,6 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Brand;
 
+use App\Actions\Brand\CreateBrand;
+use App\Actions\Brand\DeleteBrand;
+use App\Actions\Brand\EditBrand;
+use App\Actions\Brand\ShowBrand;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\File;
@@ -35,7 +39,7 @@ class Index extends Component
         ]);
     }
 
-    public function saveBrand($formData, Brand $brands)
+    public function saveBrand($formData, Brand $brands, CreateBrand $action)
     {
         $formData['file'] = $this->file;
         $validator = Validator::make($formData, [
@@ -61,35 +65,28 @@ class Index extends Component
 
         $validator->validate();
         $this->resetValidation();
-        $brands->saveBrand($formData, $this->brand_id, $this->file);
+        $action->execute($formData, $this->brand_id, $this->file);
         $this->dispatchBrowserEvent('swal:alert-success');
         $this->persian_name = '';
         $this->original_name = '';
         $this->file = '';
     }
 
-    public function editBrand($brand_id)
+    public function editBrand($value, EditBrand $editBrand)
     {
-        $brand = Brand::query()->where('id', $brand_id)->first();
-        $image = File::query()->where(['type' => 'brand', 'service_id' => $brand_id])->first();
+        $editBrand->execute($value);
 
-        @$this->file = $image->file;
-        @$this->oldPhoto = $image->file;
+        @$this->file = $editBrand->file;
+        @$this->oldPhoto = $editBrand->file;
 
-        $this->persian_name = $brand->persian_name;
-        $this->original_name = $brand->original_name;
-        $this->brand_id = $brand->id;
+        $this->persian_name = $editBrand->persian_name;
+        $this->original_name = $editBrand->original_name;
+        $this->brand_id = $editBrand->brand_id;
     }
 
-    public function show($value)
+    public function show($value, ShowBrand $showBrand)
     {
-        $brand = Brand::query()->where('id', $value)->first();
-
-        if ($brand->status == 0) {
-            Brand::query()->where('id', $value)->update(['status' => 1]);
-        } elseif ($brand->status == 1) {
-            Brand::query()->where('id', $value)->update(['status' => 0]);
-        }
+        $showBrand->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
@@ -100,10 +97,9 @@ class Index extends Component
         ]);
     }
 
-    public function delete($brand_id)
+    public function delete($value, DeleteBrand $deleteBrand)
     {
-        Brand::query()->where('id', $brand_id)->delete();
-        File::query()->where(['type' => 'brand', 'service_id' => $brand_id])->delete();
+        $deleteBrand->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
