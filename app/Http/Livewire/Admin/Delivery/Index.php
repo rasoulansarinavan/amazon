@@ -2,6 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Delivery;
 
+use App\Actions\Delivery\CreateDelivery;
+use App\Actions\Delivery\DeleteDelivery;
+use App\Actions\Delivery\EditDelivery;
+use App\Actions\Delivery\ShowDelivery;
 use App\Models\delivery;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -17,7 +21,7 @@ class Index extends Component
     public $search = '';
     public $delivery;
 
-    public function saveDelivery($formData, delivery $deliveries)
+    public function saveDelivery($formData, delivery $deliveries, CreateDelivery $action)
     {
         $validator = Validator::make($formData, [
             'name' => 'required |string',
@@ -34,7 +38,7 @@ class Index extends Component
 
         $validator->validate();
         $this->resetValidation();
-        $deliveries->saveDelivery($formData, $this->delivery_id);
+        $action->execute($formData, $this->delivery_id);
         $this->dispatchBrowserEvent('swal:alert-success');
         $this->name = '';
         $this->amount = '';
@@ -43,26 +47,20 @@ class Index extends Component
     }
 
 
-    public function editDelivery($delivery_id)
+    public function editDelivery($value, EditDelivery $editDelivery)
     {
-        $delivery = delivery::query()->where('id', $delivery_id)->first();
+        $editDelivery->execute($value);
 
-        $this->name = $delivery->name;
-        $this->amount = $delivery->amount;
-        $this->delivery_time = $delivery->delivery_time;
-        $this->description = $delivery->description;
-        $this->delivery_id = $delivery->id;
+        $this->name = $editDelivery->name;
+        $this->amount = $editDelivery->amount;
+        $this->delivery_time = $editDelivery->delivery_time;
+        $this->description = $editDelivery->description;
+        $this->delivery_id = $editDelivery->delivery_id;
     }
 
-    public function show($value)
+    public function show($value, ShowDelivery $showDelivery)
     {
-        $delivery = delivery::query()->where('id', $value)->first();
-
-        if ($delivery->active == 0) {
-            delivery::query()->where('id', $value)->update(['active' => 1]);
-        } elseif ($delivery->active == 1) {
-            delivery::query()->where('id', $value)->update(['active' => 0]);
-        }
+        $showDelivery->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
@@ -73,9 +71,9 @@ class Index extends Component
         ]);
     }
 
-    public function delete($delivery_id)
+    public function delete($value, DeleteDelivery $deleteDelivery)
     {
-        delivery::query()->where('id', $delivery_id)->delete();
+        $deleteDelivery->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 

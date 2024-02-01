@@ -156,7 +156,7 @@
                                         <td>{{ $delivery->delivery_time }}</td>
                                         <td>{{ $delivery->amount }}</td>
                                         <td>
-                                            <div class="actions t1">
+                                            <div class="actions t1" wire:ignore>
                                                 <a href="javascript:0"
                                                    wire:click="editDelivery({{$delivery->id}})"
                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
