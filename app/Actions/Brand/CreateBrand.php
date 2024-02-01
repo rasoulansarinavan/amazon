@@ -2,7 +2,6 @@
 
 namespace App\Actions\Brand;
 
-use App\Models\Brand;
 use App\Repositories\BrandRepository;
 use App\Repositories\FileRepository;
 use Illuminate\Support\Facades\DB;

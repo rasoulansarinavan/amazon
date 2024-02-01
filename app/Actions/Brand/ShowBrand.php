@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Actions\Brand;
-use App\Models\Brand;
 use App\Repositories\BrandRepository;
 
 class ShowBrand

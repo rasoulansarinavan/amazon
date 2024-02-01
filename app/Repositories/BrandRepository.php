@@ -4,9 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Brand;
 use App\Models\File;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 class BrandRepository
 {

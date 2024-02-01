@@ -2,8 +2,6 @@
 
 namespace App\Actions\Category;
 
-use App\Models\Brand;
-use App\Repositories\BrandRepository;
 use App\Repositories\CategoryRepository;
 
 class DeleteCategory
