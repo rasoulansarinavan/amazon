@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire\Admin\Category;
 
+use App\Actions\Category\CreateCategoryFeature;
+use App\Actions\Category\DeleteCategoryFeature;
+use App\Actions\Category\EditCategoryFeature;
 use App\Models\Category;
 use App\Models\Features;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +24,7 @@ class Feature extends Component
     }
 
 
-    public function saveFeature($formData, Features $features)
+    public function saveFeature($formData, Features $features, CreateCategoryFeature $action)
     {
         $validator = Validator::make($formData, [
             'title' => 'required',
@@ -37,7 +40,7 @@ class Feature extends Component
 
         $validator->validate();
         $this->resetValidation();
-        $features->saveFeature($formData, $feature_id, $category_id);
+        $action->execute($formData, $feature_id, $category_id);
         $this->dispatchBrowserEvent('swal:alert-success');
 
         $this->title = '';
@@ -47,13 +50,13 @@ class Feature extends Component
         $this->redirect('/admin/category/feature/' . $category_id);
     }
 
-    public function editFeature($feature_id)
+    public function editFeature($value, EditCategoryFeature $editCategoryFeature)
     {
-        $feature = Features::query()->where('id', $feature_id)->first();
+        $editCategoryFeature->execute($value);
 
-        $this->title = $feature->title;
-        $this->category_id = $feature->category_id;
-        $this->feature_id = $feature->id;
+        $this->title = $editCategoryFeature->title;
+        $this->category_id = $editCategoryFeature->category_id;
+        $this->feature_id = $editCategoryFeature->feature_id;
     }
 
     public function deleteConfirm($id)
@@ -63,9 +66,9 @@ class Feature extends Component
         ]);
     }
 
-    public function delete($feature_id)
+    public function delete($value, DeleteCategoryFeature $deleteCategoryFeature)
     {
-        Features::query()->where('id', $feature_id)->delete();
+        $deleteCategoryFeature->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 

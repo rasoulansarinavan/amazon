@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 
 use App\Models\Category;
+use App\Models\Features;
 use App\Models\File;
 use Illuminate\Support\Str;
 
@@ -12,6 +13,11 @@ class CategoryRepository
     public function findById(int $id)
     {
         return Category::query()->where('id', $id)->first();
+    }
+
+    public function findFeatureById(int $id)
+    {
+        return Features::query()->where('id', $id)->first();
     }
 
     public function findFileById(int $id)
@@ -31,6 +37,11 @@ class CategoryRepository
         File::query()->where(['type' => 'category', 'service_id' => $id])->delete();
     }
 
+    public function deleteFeatureById(int $id)
+    {
+        Features::query()->where('id', $id)->delete();
+    }
+
     public function saveCategory($formData, $cat_id): Category
     {
         $category = Category::query()->updateOrCreate(
@@ -47,5 +58,19 @@ class CategoryRepository
         );
 
         return $category;
+    }
+
+    public function saveFeature($formData, $feature_id, $category_id)
+    {
+
+        Features::query()->updateOrCreate(
+            [
+                'id' => $feature_id,
+                'category_id' => $category_id,
+            ],
+            [
+                'title' => $formData['title'],
+            ]
+        );
     }
 }

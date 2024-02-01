@@ -11,22 +11,6 @@ class Features extends Model
 
     protected $guarded = [];
 
-
-    public function saveFeature($formData, $feature_id, $category_id)
-    {
-   
-        Features::query()->updateOrCreate(
-            [
-                'id' => $feature_id,
-                'category_id' => $category_id,
-            ],
-            [
-                'title' => $formData['title'],
-            ]
-        );
-    }
-
-
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
