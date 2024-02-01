@@ -10,7 +10,6 @@ use App\Actions\Category\NewCategory;
 use App\Actions\Category\ShowCategory;
 use App\Actions\Category\SpecialCategory;
 use App\Models\Category;
-use App\Models\File;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -99,7 +98,6 @@ class Index extends Component
         }
 
         $editCategory->execute($value);
-//        dd($editCategory);
         @$this->file = $editCategory->file;
         @$this->oldPhoto = $editCategory->file;
 

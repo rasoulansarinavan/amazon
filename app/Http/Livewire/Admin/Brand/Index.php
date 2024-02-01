@@ -7,8 +7,6 @@ use App\Actions\Brand\DeleteBrand;
 use App\Actions\Brand\EditBrand;
 use App\Actions\Brand\ShowBrand;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\File;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Livewire\WithFileUploads;

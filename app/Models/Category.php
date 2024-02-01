@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
-
+/**
+ * @property-read int $id
+ * @property int $category_id
+ * @property string $title
+ * @property string $icon
+ * @property string $description
+ * @property-read File $image
+ */
 
 class Category extends Model
 {
