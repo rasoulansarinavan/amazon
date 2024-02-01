@@ -197,13 +197,13 @@
                                             </div>
                                         </td>
                                         <td>{{ $category->title }}</td>
-                                        @if($category->special == 0)
+                                        @if($category->category_id == 0)
                                             <td>دسته والد</td>
-                                        @elseif(isset($category->category_id))
+                                        @elseif($category->category_id)
                                             <td>{{@$category->category->title}}</td>
                                         @endif
                                         <td>
-                                            <div class="actions t1">
+                                            <div class="actions t1" wire:ignore>
                                                 <a href="{{route('admin.category.feature',$category->id)}}"
                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                    data-bs-original-title="ویژگی">
@@ -239,11 +239,19 @@
                                                 </div>
                                                 <div class="form-check d-inline-flex">
                                                     <input
-                                                        value="{{$category->id}}" @if($category->active !=0) checked
+                                                        value="{{$category->id}}" @if($category->show !=0) checked
                                                         @endif
                                                         data-bs-toggle="tooltip"
                                                         data-bs-original-title="نمایش"
                                                         wire:change="show($event.target.value)" type="checkbox">
+                                                </div>
+                                                <div class="form-check d-inline-flex">
+                                                    <input
+                                                        value="{{$category->id}}" @if($category->special !=0) checked
+                                                        @endif
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-original-title="ویژه"
+                                                        wire:change="special($event.target.value)" type="checkbox">
                                                 </div>
                                             </div>
                                         </td>

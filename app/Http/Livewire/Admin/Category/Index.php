@@ -2,6 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Category;
 
+use App\Actions\Category\ComingSoonCategory;
+use App\Actions\Category\CreateCategory;
+use App\Actions\Category\DeleteCategory;
+use App\Actions\Category\EditCategory;
+use App\Actions\Category\NewCategory;
+use App\Actions\Category\ShowCategory;
+use App\Actions\Category\SpecialCategory;
 use App\Models\Category;
 use App\Models\File;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +22,7 @@ class Index extends Component
     use WithPagination;
 
     public $title = '', $category_id = '', $icon = '', $user_level_id;
-    public $cat_id, $description, $showMoreInputsParentCategory = false;
+    public $cat_id, $description = '', $showMoreInputsParentCategory = false;
     protected $listeners = ['delete'];
     public $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhoto = '', $file;
     public $search = '';
@@ -48,7 +55,7 @@ class Index extends Component
         }
     }
 
-    public function saveCategory($formData, Category $categories)
+    public function saveCategory($formData, Category $categories, CreateCategory $action)
     {
         $formData['file'] = $this->file;
         $validator = Validator::make($formData, [
@@ -76,7 +83,7 @@ class Index extends Component
 
         $validator->validate();
         $this->resetValidation();
-        $categories->saveCategory($formData, $this->cat_id, $this->file);
+        $action->execute($formData, $this->cat_id, $this->file);
         $this->dispatchBrowserEvent('swal:alert-success');
         $this->title = '';
         $this->category_id = '';
@@ -85,71 +92,46 @@ class Index extends Component
         $this->file = '';
     }
 
-    public function editCategory($cat_id, $category_id)
+    public function editCategory($value, EditCategory $editCategory, $category_id)
     {
         if ($category_id == 0) {
             $this->showMoreInputsParentCategory = true;
         }
 
-        $category = Category::query()->where('id', $cat_id)->first();
-        $image = File::query()->where('service_id', $cat_id)->first();
+        $editCategory->execute($value);
+//        dd($editCategory);
+        @$this->file = $editCategory->file;
+        @$this->oldPhoto = $editCategory->file;
 
-        @$this->file = $image->file;
-        @$this->oldPhoto = $image->file;
-
-        $this->title = $category->title;
-        $this->category_id = $category->category_id;
-        $this->icon = $category->icon;
-        $this->description = $category->description;
-        $this->user_level_id = $category->user_level_id;
-        $this->cat_id = $category->id;
+        $this->title = $editCategory->title;
+        $this->category_id = $editCategory->category_id;
+        $this->icon = $editCategory->icon;
+        $this->description = $editCategory->description;
+        $this->user_level_id = $editCategory->user_level_id;
+        $this->cat_id = $editCategory->cat_id;
     }
 
-    public function special($value)
+    public function special($value, SpecialCategory $specialCategory)
     {
-        $category = Category::query()->where('id', $value)->first();
-
-        if ($category->special == 0) {
-            Category::query()->where('id', $value)->update(['special' => 1]);
-        } elseif ($category->special == 1) {
-            Category::query()->where('id', $value)->update(['special' => 0]);
-        }
+        $specialCategory->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
-    public function comingSoon($value)
+    public function comingSoon($value, ComingSoonCategory $comingSoonCategory)
     {
-        $category = Category::query()->where('id', $value)->first();
-
-        if ($category->coming_soon == 0) {
-            Category::query()->where('id', $value)->update(['coming_soon' => 1]);
-        } elseif ($category->coming_soon == 1) {
-            Category::query()->where('id', $value)->update(['coming_soon' => 0]);
-        }
+        $comingSoonCategory->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
-    public function new($value)
+    public function new($value, NewCategory $newCategory)
     {
-        $category = Category::query()->where('id', $value)->first();
-
-        if ($category->new == 0) {
-            Category::query()->where('id', $value)->update(['new' => 1]);
-        } elseif ($category->new == 1) {
-            Category::query()->where('id', $value)->update(['new' => 0]);
-        }
+        $newCategory->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
-    public function show($value)
+    public function show($value, ShowCategory $showCategory)
     {
-        $category = Category::query()->where('id', $value)->first();
-
-        if ($category->active == 0) {
-            Category::query()->where('id', $value)->update(['show' => 1]);
-        } elseif ($category->active == 1) {
-            Category::query()->where('id', $value)->update(['show' => 0]);
-        }
+        $showCategory->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
@@ -160,10 +142,9 @@ class Index extends Component
         ]);
     }
 
-    public function delete($category_id)
+    public function delete($value, DeleteCategory $deleteCategory)
     {
-        Category::query()->where('id', $category_id)->delete();
-        File::query()->where('service_id', $category_id)->delete();
+        $deleteCategory->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 

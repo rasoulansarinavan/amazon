@@ -53,4 +53,46 @@ class FileRepository
             ]
         );
     }
+
+    public function saveCategoryFile(int $categoryId, UploadedFile $image): void
+    {
+        $path = public_path() . '/images/categories/' . $categoryId;
+        if (!IlluminateFile::exists($path)) {
+            IlluminateFile::makeDirectory($path);
+        }
+        if ($categoryId == 0 && $image != null) {
+            $extension = $image->extension();
+            $image_name = 'image_categories_' . $categoryId . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/categories/' . $categoryId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/categories/' . $categoryId . '/' . $image_name), 40);
+            $this->insertImageToFileTable2($path, $categoryId);
+        }
+
+        $adminFileName = File::query()->where([
+            'service_id' => $categoryId,
+            'type' => 'category',
+        ])->pluck('file')->first();
+
+        if ($image != $adminFileName && $categoryId != 0) {
+            $extension = $image->extension();
+            $image_name = 'image_categories_' . $categoryId . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/categories/' . $categoryId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/categories/' . $categoryId . '/' . $image_name), 40);
+            $this->insertImageToFileTable2($path, $categoryId, $categoryId);
+        }
+    }
+
+    public function insertImageToFileTable2($path, $categoryId)
+    {
+
+        return File::query()->updateOrCreate(
+            [
+                'service_id' => $categoryId,
+                'type' => 'category',
+            ],
+            [
+                'file' => $path,
+            ]
+        );
+    }
 }

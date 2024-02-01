@@ -25,11 +25,6 @@ class BrandRepository
         Brand::query()->where('id', $id)->update($data);
     }
 
-    public function editById(int $id, array $data)
-    {
-        Brand::query()->where('id', $id)->update($data);
-    }
-
     public function deleteById(int $id)
     {
         \Illuminate\Support\Facades\File::deleteDirectory(public_path('images/brands/' . $id));
