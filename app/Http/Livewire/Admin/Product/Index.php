@@ -2,12 +2,15 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
-use App\Models\File;
+use App\Actions\Product\DeleteProduct;
+use App\Actions\Product\ShowProduct;
 use App\Models\Product;
 use Livewire\Component;
 
 class Index extends Component
 {
+    protected $listeners = ['delete'];
+
     public function special($value)
     {
         $product = Product::query()->where('id', $value)->first();
@@ -20,15 +23,9 @@ class Index extends Component
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
-    public function show($value)
+    public function show($value, ShowProduct $showProduct)
     {
-        $product = Product::query()->where('id', $value)->first();
-
-        if ($product->show == 0) {
-            Product::query()->where('id', $value)->update(['show' => 1]);
-        } elseif ($product->show == 1) {
-            Product::query()->where('id', $value)->update(['show' => 0]);
-        }
+        $showProduct->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
@@ -39,10 +36,9 @@ class Index extends Component
         ]);
     }
 
-    public function delete($product_id)
+    public function delete($value, DeleteProduct $deleteProduct)
     {
-        Product::query()->where('id', $product_id)->delete();
-        File::query()->where('service_id', $product_id)->delete();
+        $deleteProduct->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 

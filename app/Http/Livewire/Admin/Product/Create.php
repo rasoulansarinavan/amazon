@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Product;
 
+use App\Actions\Product\CreateProduct;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Features;
@@ -54,8 +55,7 @@ class Create extends Component
         foreach ($this->photos as $photo) {
             $this->fileExtension = $photo->getClientOriginalExtension();
             $this->validate([
-                'photos' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024|dimensions:min_width=1200,min_height=800,max_width=1200,max_height=800', // 1MB Max
-            ], [
+                'photos' => 'nullable|max:1024', // 1MB Max
                 'photos.required' => 'فیلد ضروری',
                 'photos.max' => 'حداکثر حجم تصویر : 1MB',
                 'photos.dimensions' => 'ایعاد تصاویر باید w:1200 , h:800 px باشد',
@@ -84,6 +84,7 @@ class Create extends Component
         ]);
         $validator->validate();
         $this->resetValidation();
+
         Session::put('step1', $formData);
 
         $this->step1 = false;
@@ -97,9 +98,10 @@ class Create extends Component
 
     public function step2()
     {
+//        dd($this->photos);
         if (!$this->oldPhotos) {
             $this->validate([
-                'photos' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+                'photos' => 'nullable|max:1024', // 1MB Max
             ], [
                 'photos.required' => 'فیلد ضروری',
                 'photos.max' => 'حداکثر حجم تصویر : 1MB',
@@ -135,7 +137,7 @@ class Create extends Component
         // $this->redirect('/admin/product/index');
     }
 
-    public function step4($formData, Product $product)
+    public function step4($formData, Product $product,CreateProduct $action)
     {
 
         $featureIds = [];
@@ -160,8 +162,9 @@ class Create extends Component
         Session::put('step4', $formData);
         $allData = array_merge(Session::get('step1'), Session::get('step3'), Session::get('step4'));
         $features = $formData;
+//        $product->submitInfo($allData, $features, $this->product_id, $this->photos);
+        $action->execute($allData, $features, $this->product_id, $this->photos);
 
-        $product->submitInfo($allData, $features, $this->product_id, $this->photos);
         $this->redirect('/admin/product');
     }
 

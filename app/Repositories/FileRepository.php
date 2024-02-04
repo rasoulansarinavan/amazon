@@ -2,10 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Models\Brand;
 use App\Models\File;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File as IlluminateFile;
@@ -94,5 +92,32 @@ class FileRepository
                 'file' => $path,
             ]
         );
+    }
+
+    public function imageResizing($photos, $product_id)
+    {
+        $path_thumbnail = public_path('/images/products/thumbnails/' . $product_id);
+        $path_large = public_path('/images/products/large/' . $product_id);
+
+        if (!IlluminateFile::exists($path_thumbnail)) {
+            mkdir($path_thumbnail, 0755);
+            mkdir($path_large, 0755);
+        }
+
+        foreach ($photos as $item) {
+            $image_name = str_replace(' ', '_', 'product') . '_' . time() + rand(0, 12312) . '.' . $item->extension();
+
+            Image::make($item)->save($path_thumbnail . '/' . $image_name, 95);
+            Image::make($item)->save($path_large . '/' . $image_name, 75);
+
+            \App\Models\File::query()->create(
+                [
+                    'service_id' => $product_id,
+                    'file' => $image_name,
+                    'type' => 'product',
+                ]
+            );
+        }
+
     }
 }

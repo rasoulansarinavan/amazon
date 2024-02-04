@@ -39,7 +39,7 @@
                                         </div>
                                     </td>
                                     <td>{{$product->title}}</td>
-                                    <td>{{$product->category->title}}</td>
+                                    <td>{{@$product->category->title}}</td>
                                     <td>{{$product->price}}</td>
                                     @if($product->discount !=0)
                                         <td>{{$product->discount}}</td>

@@ -9,7 +9,7 @@
                 <span style="float: left" wire:loading.remove
                       class="alert alert-danger">{{ $message}}</span>
             @endforeach
-{{--            @error('photos.*') <span class="alert alert-danger mt-2 d-block">{{ $message }}</span> @enderror--}}
+            @error('photos.*') <span class="alert alert-danger mt-2 d-block">{{ $message }}</span> @enderror
             <div class="field-wrapper">
                 <div class="d-flex align-items-start justify-content-between">
                     <div class="alert alert-success">
