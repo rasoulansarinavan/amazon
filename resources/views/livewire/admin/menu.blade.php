@@ -73,11 +73,29 @@
                             <span class="menu-text">مدیریت سفارشات</span>
                         </a>
                     </li>
-                    <li class="@if($rout_name=='admin.store') active @endif">
+                    <li class="@if($rout_name=='admin.store' or $rout_name=='admin.store.update' or $rout_name=='admin.store.edit') active @endif">
                         <a href="{{route('admin.store')}}" class="current-page">
                             <i class="note-icon-special-character"></i>
                             <span class="menu-text">مدیریت انبار</span>
                         </a>
+                    </li>
+                    <li class="default-sidebar-dropdown @if($rout_name=='admin.users' or $rout_name=='admin.users.admins') active @endif">
+                        <a href="#">
+                            <i class="icon-users"></i>
+                            <span class="menu-text">کاربران</span>
+                        </a>
+                        <div class="default-sidebar-submenu">
+                            <ul>
+                                <li class="@if($rout_name=='admin.users')  active @endif">
+                                    <a href="{{route('admin.users')}}">لیست کاربران</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.users.admins')}}"
+                                       class="{{$rout_name=='admin.users.admins'?'current-page':''}}">مدیریت ادمین
+                                        ها</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
