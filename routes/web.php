@@ -10,7 +10,9 @@ Route::get('/', function () {
 });
 
 
-
+//Route::namespace('Auth')->group(function () {
+Route::get('login-register', LoginRegister::class)->name('login-register-form');
+//});
 
 /*********** ADMIN PANEL *************/
 
@@ -33,6 +35,7 @@ Route::group(['prefix' => 'admin'
         Route::get('/store', \App\Http\Livewire\Admin\Store\Index::class)->name('store');
         Route::get('/store/update/{id}', \App\Http\Livewire\Admin\Store\Update::class)->name('store.update');
         Route::get('/store/edit/{id}', \App\Http\Livewire\Admin\Store\Edit::class)->name('store.edit');
+        Route::get('/comments', \App\Http\Livewire\Admin\Comment\Index::class)->name('comments');
 
     });
 });
