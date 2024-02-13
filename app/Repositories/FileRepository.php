@@ -120,4 +120,46 @@ class FileRepository
         }
 
     }
+
+    public function saveAdminFile(int $adminId, UploadedFile $image): void
+    {
+        $path = public_path() . '/images/admins/' . $adminId;
+        if (!IlluminateFile::exists($path)) {
+            !IlluminateFile::makeDirectory($path);
+        }
+        if ($adminId == 0) {
+            $extension = $image->extension();
+            $image_name = 'image_admins_' . $adminId . '_' . '_admins_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/admins/' . $adminId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/admins/' . $adminId . '/' . $image_name), 40);
+            $this->insertImageToFileTable3($path, $adminId);
+        }
+        $adminFileName = File::query()->where([
+            'user_id' => $adminId,
+            'type' => 'admin',
+        ])->pluck('file')->first();
+
+        if ($image != $adminFileName && $adminId != 0) {
+//            unlink($adminFileName);
+            $extension = $image->extension();
+            $image_name = 'image_admins_' . $adminId . '_' . '_admins_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/admins/' . $adminId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/admins/' . $adminId . '/' . $image_name), 40);
+            $this->insertImageToFileTable3($path, $adminId);
+        }
+    }
+
+    public function insertImageToFileTable3($path, $adminId)
+    {
+
+        return File::query()->updateOrCreate(
+            [
+                'service_id' => $adminId,
+                'type' => 'admin',
+            ],
+            [
+                'file' => $path,
+            ]
+        );
+    }
 }
