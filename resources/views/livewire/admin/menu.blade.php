@@ -97,6 +97,12 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="@if($rout_name=='admin.comments') active @endif">
+                        <a href="{{route('admin.comments')}}" class="current-page">
+                            <i class="icon-comment"></i>
+                            <span class="menu-text">مدیریت نظرات</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
