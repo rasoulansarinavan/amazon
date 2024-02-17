@@ -29,13 +29,22 @@
                                 <tr role="row" class="odd">
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$comment->body}}</td>
-                                    <td>{{$comment->parent_id}}</td>
-                                    <td>{{$comment->author_id}}</td>
-                                    <td>{{$comment->product_id}}</td>
-                                    @if($comment->approved ==0)
-                                        <td>عدم تایید</td>
+                                    @if($comment->parent_id == 0)
+                                        <td>نظر کاربر</td>
                                     @else
-                                        <td>تایید</td>
+                                        <td>نظر ادمین</td>
+                                    @endif
+                                    <td>{{$comment->author->first_name}} {{$comment->author->last_name}}</td>
+                                    <td>{{$comment->product->title}}</td>
+                                    @if($comment->approved ==0)
+                                        <td class="text-warning">عدم تایید</td>
+                                    @else
+                                        <td class="text-success">تایید</td>
+                                    @endif
+                                    @if($comment->status ==0)
+                                        <td class="text-warning">عدم نمایش</td>
+                                    @else
+                                        <td class="text-success">نمایش</td>
                                     @endif
                                     <td>
                                         <div class="actions" style="font-size: 20px">
@@ -44,14 +53,18 @@
                                                data-bs-original-title="حذف">
                                                 <i class="icon-x-circle text-danger ms-2"></i>
                                             </a>
-                                            <div class="form-check d-inline-flex">
-                                                <input
-                                                    value="{{$comment->id}}" @if($comment->status !=0) checked
-                                                    @endif
-                                                    data-bs-toggle="tooltip"
-                                                    data-bs-original-title="نمایش"
-                                                    wire:change="show($event.target.value)" type="checkbox">
-                                            </div>
+                                            <input
+                                                value="{{$comment->id}}" @if($comment->status !=0) checked
+                                                @endif
+                                                data-bs-toggle="tooltip"
+                                                data-bs-original-title="نمایش"
+                                                wire:change="show($event.target.value)" type="checkbox">
+                                            <input
+                                                value="{{$comment->id}}" @if($comment->approved !=0) checked
+                                                @endif
+                                                data-bs-toggle="tooltip"
+                                                data-bs-original-title="تایید"
+                                                wire:change="approved($event.target.value)" type="checkbox">
                                         </div>
                                     </td>
                                 </tr>
