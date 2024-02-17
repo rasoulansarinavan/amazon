@@ -17,4 +17,8 @@ class CommentRepository
         Comment::query()->where('id', $id)->update($data);
     }
 
+    public function DeleteById(int $id)
+    {
+        Comment::query()->where('id', $id)->delete();
+    }
 }
