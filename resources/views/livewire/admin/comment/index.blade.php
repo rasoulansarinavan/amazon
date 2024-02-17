@@ -53,6 +53,14 @@
                                                data-bs-original-title="حذف">
                                                 <i class="icon-x-circle text-danger ms-2"></i>
                                             </a>
+                                            @if($comment->paren_id == 0)
+                                                <a href="{{route('admin.comments.answer',$comment->id)}}"
+                                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                                   data-bs-original-title="پاسخ">
+                                                    <i class="icon-edit-2 text-info ms-2"></i>
+                                                </a>
+                                            @else
+                                            @endif
                                             <input
                                                 value="{{$comment->id}}" @if($comment->status !=0) checked
                                                 @endif
