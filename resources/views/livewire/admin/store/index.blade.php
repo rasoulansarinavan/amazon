@@ -66,36 +66,34 @@
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
-                                    <tr role="row" class="odd position-relative">
-                                        <td>{{$loop->index+1}}</td>
-                                        <td>{{ $product->title }}</td>
-                                        <td class="sorting_1">
-                                            <div class="media-box  align-items-center row">
-                                                <img src="/{{@$product->image->file}}"
-                                                     style="width: 100px;border-radius: 5%"
-                                                     class=" ms-2 media-avatar"
-                                                     alt="Product">
-                                            </div>
-                                        </td>
-                                        <td>{{ $product->marketable_number }}</td>
-                                        <td>{{ $product->frozen_number }}</td>
-                                        <td>{{ $product->sold_number }}</td>
-                                        <td>
-                                            <div class="actions t1">
-                                                <a href="{{route('admin.store.update',$product->id)}}"
-                                                   data-bs-toggle="tooltip" data-bs-placement="top"
-                                                   data-bs-original-title="افزایش موجودی">
-                                                    <i class="icon-edit1 text-info ms-2"></i>
-                                                </a>
-                                                <a href="{{route('admin.store.edit',$product->id)}}"
-                                                   data-bs-toggle="tooltip" data-bs-placement="top"
-                                                   data-bs-original-title="اصلاح موجودی">
-                                                    <i class="icon-edit1 text-info ms-2"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                    @forelse($product->images as $key =>$value)
+                                    @empty
+                                    @endforelse
+                                        <tr role="row" class="odd position-relative">
+                                            <td>{{$loop->index+1}}</td>
+                                            <td>{{ $product->title }}</td>
+                                            <td class="sorting_1">
+                                                <div class="media-box  align-items-center row">
+                                                    <img src="/images/products/thumbnails/{{$product->id}}/{{@$value->file}}"
+                                                         style="width: 100px;border-radius: 5%"
+                                                         class=" ms-2 media-avatar"
+                                                         alt="Product">
+                                                </div>
+                                            </td>
+                                            <td>{{ $product->marketable_number }}</td>
+                                            <td>{{ $product->frozen_number }}</td>
+                                            <td>{{ $product->sold_number }}</td>
+                                            <td>
+                                                <div class="actions t1">
+                                                    <a href="{{route('admin.store.edit',$product->id)}}"
+                                                       data-bs-toggle="tooltip" data-bs-placement="top"
+                                                       data-bs-original-title="اصلاح موجودی">
+                                                        <i class="icon-edit1 text-info ms-2"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                         </div>
