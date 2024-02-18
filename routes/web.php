@@ -33,7 +33,6 @@ Route::group(['prefix' => 'admin'
         Route::get('/users', \App\Http\Livewire\Admin\User\Index::class)->name('users');
         Route::get('/admins', \App\Http\Livewire\Admin\User\Admins::class)->name('users.admins');
         Route::get('/store', \App\Http\Livewire\Admin\Store\Index::class)->name('store');
-        Route::get('/store/update/{id}', \App\Http\Livewire\Admin\Store\Update::class)->name('store.update');
         Route::get('/store/edit/{id}', \App\Http\Livewire\Admin\Store\Edit::class)->name('store.edit');
         Route::get('/comments', \App\Http\Livewire\Admin\Comment\Index::class)->name('comments');
         Route::get('/comments/answer/{id}', \App\Http\Livewire\Admin\Comment\Answer::class)->name('comments.answer');
