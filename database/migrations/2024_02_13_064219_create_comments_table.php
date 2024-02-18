@@ -13,9 +13,9 @@ return new class extends Migration {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->foreignId('parent_id')->nullable()->constrained('comments');
-            $table->foreignId('author_id')->constrained('users');
-            $table->foreignId('product_id')->nullable()->constrained('products');
+            $table->foreignId('parent_id')->nullable();
+            $table->foreignId('author_id');
+            $table->foreignId('product_id')->nullable();
             $table->tinyInteger('seen')->default(0)->comment('0 => unseen, 1 => seen');
             $table->tinyInteger('approved')->default(0)->comment('0 => not approved, 1 => approved');
             $table->tinyInteger('status')->default(0);
