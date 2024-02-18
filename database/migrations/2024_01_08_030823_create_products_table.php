@@ -18,6 +18,9 @@ return new class extends Migration {
             $table->text('long_description');
             $table->integer('discount')->default(0);
             $table->string('slug')->unique()->nullable();
+            $table->tinyInteger('sold_number')->default(0);
+            $table->tinyInteger('frozen_number')->default(0);
+            $table->tinyInteger('marketable_number')->default(0);
             $table->timestamps();
         });
     }
