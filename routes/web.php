@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin'
         Route::get('/store/edit/{id}', \App\Http\Livewire\Admin\Store\Edit::class)->name('store.edit');
         Route::get('/comments', \App\Http\Livewire\Admin\Comment\Index::class)->name('comments');
         Route::get('/comments/answer/{id}', \App\Http\Livewire\Admin\Comment\Answer::class)->name('comments.answer');
+        Route::get('/comments/edit/{id}', \App\Http\Livewire\Admin\Comment\Edit::class)->name('comments.edit');
 
     });
 });
