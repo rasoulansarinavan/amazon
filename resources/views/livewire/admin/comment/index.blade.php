@@ -53,13 +53,18 @@
                                                data-bs-original-title="حذف">
                                                 <i class="icon-x-circle text-danger ms-2"></i>
                                             </a>
-                                            @if($comment->paren_id == 0)
+                                            @if($comment->parent_id == 0)
                                                 <a href="{{route('admin.comments.answer',$comment->id)}}"
                                                    data-bs-toggle="tooltip" data-bs-placement="top"
                                                    data-bs-original-title="پاسخ">
                                                     <i class="icon-edit-2 text-info ms-2"></i>
                                                 </a>
-                                            @else
+                                            @elseif($comment->parent_id != 0)
+                                                <a href="{{route('admin.comments.edit',$comment->id)}}"
+                                                   data-bs-toggle="tooltip" data-bs-placement="top"
+                                                   data-bs-original-title="ویرایش پاسخ">
+                                                    <i class="icon-edit1 text-info ms-2"></i>
+                                                </a>
                                             @endif
                                             <input
                                                 value="{{$comment->id}}" @if($comment->status !=0) checked
