@@ -73,6 +73,30 @@
                             <span class="menu-text">مدیریت سفارشات</span>
                         </a>
                     </li>
+
+                    <li class="default-sidebar-dropdown @if($rout_name=='admin.discount.amazing' or $rout_name=='admin.discount.common' or $rout_name=='admin.discount.coupon') active @endif">
+                        <a href="#">
+                            <i class="icon-users"></i>
+                            <span class="menu-text">مدیریت تخفیف ها</span>
+                        </a>
+                        <div class="default-sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="{{route('admin.discount.amazing')}}"
+                                       class="{{$rout_name=='admin.discount.amazing'?'current-page':''}}">فروش شگفت انگیز</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.discount.common')}}"
+                                       class="{{$rout_name=='admin.discount.common'?'current-page':''}}">تخفیف عمومی</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.discount.coupon')}}"
+                                       class="{{$rout_name=='admin.discount.coupon'?'current-page':''}}">کوپن تخفیف</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="@if($rout_name=='admin.store' or $rout_name=='admin.store.update' or $rout_name=='admin.store.edit') active @endif">
                         <a href="{{route('admin.store')}}" class="current-page">
                             <i class="note-icon-special-character"></i>
