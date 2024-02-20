@@ -37,7 +37,6 @@ Route::group(['prefix' => 'admin'
         Route::get('/comments', \App\Http\Livewire\Admin\Comment\Index::class)->name('comments');
         Route::get('/comments/answer/{id}', \App\Http\Livewire\Admin\Comment\Answer::class)->name('comments.answer');
         Route::get('/comments/edit/{id}', \App\Http\Livewire\Admin\Comment\Edit::class)->name('comments.edit');
-        Route::get('/discount/amazing', \App\Http\Livewire\Admin\Discount\Amazing::class)->name('discount.amazing');
         Route::get('/discount/common', \App\Http\Livewire\Admin\Discount\Common::class)->name('discount.common');
         Route::get('/discount/coupon', \App\Http\Livewire\Admin\Discount\Coupon::class)->name('discount.coupon');
 
