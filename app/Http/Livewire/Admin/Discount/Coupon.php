@@ -3,6 +3,9 @@
 namespace App\Http\Livewire\Admin\Discount;
 
 use App\Actions\Discount\CreateCouponDiscount;
+use App\Actions\Discount\DeleteCouponDiscount;
+use App\Actions\Discount\EditCouponDiscount;
+use App\Actions\Discount\StatusCouponDiscount;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -11,6 +14,7 @@ use \App\Models\Coupon as Coupons;
 
 class Coupon extends Component
 {
+    public $title, $code, $amount, $amount_type, $discount_ceiling, $type, $start_date, $end_date, $user_id;
     public $couponId;
     protected $listeners = ['delete'];
 
@@ -45,10 +49,56 @@ class Coupon extends Component
         $this->resetValidation();
         $action->execute($formData, $this->couponId);
         $this->dispatchBrowserEvent('swal:alert-success');
+        $this->title = '';
+        $this->code = '';
+        $this->amount = '';
+        $this->amount_type = '';
+        $this->discount_ceiling = '';
+        $this->type = '';
+        $this->start_date = '';
+        $this->end_date = '';
+        $this->user_id = '';
+        $this->couponId = '';
+    }
+
+    public function editCoupon($value, EditCouponDiscount $editCouponDiscount)
+    {
+        $editCouponDiscount->execute($value);
+        $this->title = $editCouponDiscount->title;
+        $this->code = $editCouponDiscount->code;
+        $this->amount = $editCouponDiscount->amount;
+        $this->amount_type = $editCouponDiscount->amount_type;
+        $this->discount_ceiling = $editCouponDiscount->discount_ceiling;
+        $this->type = $editCouponDiscount->type;
+        $this->start_date = $editCouponDiscount->start_date;
+        $this->end_date = $editCouponDiscount->end_date;
+        $this->user_id = $editCouponDiscount->user_id;
+        $this->couponId = $editCouponDiscount->couponId;
+
+    }
+
+    public function status($value, StatusCouponDiscount $statusCouponDiscount)
+    {
+        $statusCouponDiscount->execute($value);
+        $this->dispatchBrowserEvent('swal:alert-success');
+    }
+
+    public function deleteConfirm($id)
+    {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'id' => $id,
+        ]);
+    }
+
+    public function delete($value, DeleteCouponDiscount $deleteCouponDiscount)
+    {
+        $deleteCouponDiscount->execute($value);
+        $this->dispatchBrowserEvent('swal:alert-success');
     }
 
     public function render()
     {
-        return view('livewire.admin.discount.coupon')->layout('layouts.app-admin');
+        $coupons = Coupons::query()->get();
+        return view('livewire.admin.discount.coupon', compact('coupons'))->layout('layouts.app-admin');
     }
 }
