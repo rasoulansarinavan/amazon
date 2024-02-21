@@ -33,7 +33,7 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
             <div class="card position-sticky" style="top: 0">
                 <div class="card-header">
-                    <div class="card-title">افزودن نحوه ارسال</div>
+                    <div class="card-title">افزودن تخفیف عمومی</div>
                 </div>
                 <div class="card-body">
                     <div class="row gutters">
