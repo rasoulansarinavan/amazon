@@ -30,7 +30,7 @@
 
     </style>
     <div class="row gutters">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
             <div class="card position-sticky" style="top: 0">
                 <div class="card-header">
                     <div class="card-title">کوپن تخفیف</div>
@@ -201,84 +201,81 @@
                 </div>
             </div>
         </div>
-        {{--        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 ">--}}
-        {{--            <div class="card">--}}
-        {{--                <div class="card-body">--}}
-        {{--                    @if(session('message'))--}}
-        {{--                        <div class="alert alert-success">--}}
-        {{--                            {{ session('message') }}--}}
-        {{--                        </div>--}}
-        {{--                    @endif--}}
-        {{--                    <div class="d-flex justify-content-between align-items-center">--}}
-        {{--                        <div class="field-wrapper">--}}
-        {{--                            <input style="background: #384d76" class="form-control" type="text"--}}
-        {{--                                   wire:model.debounce.500ms="search">--}}
-        {{--                            <div class="field-placeholder">جستجو <span class="text-danger">*</span></div>--}}
-        {{--                        </div>--}}
-        {{--                        --}}{{--                        <div class="d-flex">--}}
-        {{--                        --}}{{--                            {{ $allDelivery->links('layouts.pagination-admin') }}--}}
-        {{--                        --}}{{--                        </div>--}}
-        {{--                    </div>--}}
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 ">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="field-wrapper">
+                            <input style="background: #384d76" class="form-control" type="text"
+                                   wire:model.debounce.500ms="search">
+                            <div class="field-placeholder">جستجو <span class="text-danger">*</span></div>
+                        </div>
+                        <div class="d-flex">
+                        </div>
+                    </div>
 
-        {{--                    <div class="table-responsive">--}}
-        {{--                        <div id="copy-print-csv_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">--}}
-        {{--                            <table id="" class="table v-middle dataTable no-footer" role="grid"--}}
-        {{--                                   aria-describedby="copy-print-csv_info">--}}
-        {{--                                <thead>--}}
-        {{--                                <tr role="row">--}}
-        {{--                                    <th>#</th>--}}
-        {{--                                    <th>کد کوپن</th>--}}
-        {{--                                    <th>درصد تخفیف</th>--}}
-        {{--                                    <th>سقف تخفیف</th>--}}
-        {{--                                    <th>نوع کوپن</th>--}}
-        {{--                                    <th>تاریخ شروع</th>--}}
-        {{--                                    <th>تاریخ پایان</th>--}}
-        {{--                                    <th>عملیات</th>--}}
-        {{--                                </tr>--}}
-        {{--                                </thead>--}}
-        {{--                                <tbody>--}}
+                    <div class="table-responsive">
+                        <div id="copy-print-csv_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <table id="" class="table v-middle dataTable no-footer" role="grid"
+                                   aria-describedby="copy-print-csv_info">
+                                <thead>
+                                <tr role="row">
+                                    <th>#</th>
+                                    <th>نوع کوپن</th>
+                                    <th>عنوان کوپن</th>
+                                    <th>کد کوپن</th>
+                                    <th>کاربری</th>
+                                    <th>درصد تخفیف</th>
+                                    <th>سقف تخفیف</th>
+                                    <th>تاریخ شروع</th>
+                                    <th>تاریخ پایان</th>
+                                    <th>عملیات</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
-        {{--                                --}}{{--                                @foreach($allDelivery as $delivery)--}}
-        {{--                                <tr role="row" class="odd position-relative">--}}
-        {{--                                    <td>{{$loop->index+1}}</td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td></td>--}}
-        {{--                                    <td>--}}
-        {{--                                        <div class="actions t1" wire:ignore>--}}
-        {{--                                            <a href="javascript:0"--}}
-        {{--                                               wire:click="editDelivery({{$delivery->id}})"--}}
-        {{--                                               data-bs-toggle="tooltip" data-bs-placement="bottom"--}}
-        {{--                                               data-bs-original-title="ویرایش">--}}
-        {{--                                                <i class="icon-edit1 text-info ms-2"></i>--}}
-        {{--                                            </a>--}}
-        {{--                                            <a href="javascript:0" wire:click="deleteConfirm({{$delivery->id}})"--}}
-        {{--                                               data-bs-toggle="tooltip" data-bs-placement="bottom"--}}
-        {{--                                               data-bs-original-title="حذف">--}}
-        {{--                                                <i class="icon-x-circle text-danger ms-2"></i>--}}
-        {{--                                            </a>--}}
-        {{--                                            <div class="form-check d-inline-flex">--}}
-        {{--                                                <input value="{{$delivery->id}}" @if($delivery->active !=0) checked--}}
-        {{--                                                       @endif--}}
-        {{--                                                       data-bs-toggle="tooltip"--}}
-        {{--                                                       data-bs-original-title="نمایش"--}}
-        {{--                                                       wire:change="show($event.target.value)" type="checkbox">--}}
-        {{--                                            </div>--}}
-        {{--                                        </div>--}}
-        {{--                                    </td>--}}
-        {{--                                </tr>--}}
-        {{--                                --}}{{--                                @endforeach--}}
-        {{--                                </tbody>--}}
-        {{--                            </table>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                    --}}{{--                    {{ $allDelivery->links('layouts.pagination-admin') }}--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
+                                @foreach($coupons as $coupon)
+                                    <tr role="row" class="odd position-relative">
+                                        <td>{{$loop->index+1}}</td>
+                                        <td>{{$coupon->amount_type==0 ?'درصدی':'عددی'}}</td>
+                                        <td>{{$coupon->title}}</td>
+                                        <td>{{$coupon->code}}</td>
+                                        <td>{{$coupon->user_id !=null ? $coupon->user_id:'عمومی'}}</td>
+                                        <td>{{$coupon->amount}}</td>
+                                        <td>{{ number_format($coupon->discount_ceiling) }}</td>
+                                        <td>{{ jdate($coupon->start_date)}}</td>
+                                        <td>{{ jdate($coupon->end_date) }}</td>
+                                        <td>
+                                            <div class="actions t1" wire:ignore>
+                                                <a href="javascript:0"
+                                                   wire:click="editCoupon({{$coupon->id}})"
+                                                   data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                   data-bs-original-title="ویرایش">
+                                                    <i class="icon-edit1 text-info ms-2"></i>
+                                                </a>
+                                                <a href="javascript:0" wire:click="deleteConfirm({{$coupon->id}})"
+                                                   data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                   data-bs-original-title="حذف">
+                                                    <i class="icon-x-circle text-danger ms-2"></i>
+                                                </a>
+                                                <div class="form-check d-inline-flex">
+                                                    <input value="{{$coupon->id}}" @if($coupon->status !=0) checked
+                                                           @endif
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-original-title="نمایش"
+                                                           wire:change="status($event.target.value)" type="checkbox">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     @push('script')
 
