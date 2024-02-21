@@ -82,10 +82,6 @@
                         <div class="default-sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="{{route('admin.discount.amazing')}}"
-                                       class="{{$rout_name=='admin.discount.amazing'?'current-page':''}}">فروش شگفت انگیز</a>
-                                </li>
-                                <li>
                                     <a href="{{route('admin.discount.common')}}"
                                        class="{{$rout_name=='admin.discount.common'?'current-page':''}}">تخفیف عمومی</a>
                                 </li>
