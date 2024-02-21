@@ -74,4 +74,19 @@ class DiscountRepository
         );
         return $coupon;
     }
+
+    public function deleteCouponById(int $value)
+    {
+        Coupon::query()->where('id', $value)->delete();
+    }
+
+    public function findCouponById(int $id)
+    {
+        return Coupon::query()->where('id', $id)->first();
+    }
+
+    public function updateCouponById(int $id, array $data)
+    {
+        Coupon::query()->where('id', $id)->update($data);
+    }
 }
