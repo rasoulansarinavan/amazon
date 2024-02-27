@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/backend/dark/vendor/dropzone/dropzone.min.css"/>
     <link rel="stylesheet" href="/backend/dark/vendor/input-tags/tagsinput.css"/>
     <link rel="stylesheet" href="/backend/dark/vendor/notify/notify-flat.css">
+    <link rel="stylesheet" href="/admin-assets/jalalidatepicker/persian-datepicker.min.css">
 {{--    <link href="/frontend/css/lightbox.css" rel="stylesheet"/>--}}
 
 
