@@ -10,7 +10,7 @@ class StoreRepository
 {
     public function edit($formData, $product_id): Product
     {
-        $product = Product::query()->updateOrCreate(
+        return Product::query()->updateOrCreate(
             [
                 'id' => $product_id
             ],
@@ -21,6 +21,5 @@ class StoreRepository
 
             ]
         );
-        return $product;
     }
 }
