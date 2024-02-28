@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\User;
 
 use App\Models\User;
@@ -10,6 +12,6 @@ class Index extends Component
     public function render()
     {
         $users = User::query()->get();
-        return view('livewire.admin.user.index',compact('users'))->layout('layouts.app-admin');
+        return view('livewire.admin.user.index', compact('users'))->layout('layouts.app-admin');
     }
 }

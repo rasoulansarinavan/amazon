@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\User;
 
 use App\Actions\Admin\BlockAdmin;
@@ -7,7 +9,6 @@ use App\Actions\Admin\CreateAdmin;
 use App\Actions\Admin\DeleteAdmin;
 use App\Actions\Admin\EditAdmin;
 use App\Models\Admin;
-use App\Models\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -19,11 +20,17 @@ class Admins extends Component
 
     protected $listeners = ['delete'];
 
-    public $name, $email, $mobile, $image, $adminId, $password;
-    public $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhoto = '';
+    public $name;
+    public $email;
+    public $mobile;
+    public $image;
+    public $adminId;
+    public $password;
+    public $fileExtension;
+    public $extensions = ['jpeg', 'jpg', 'png', 'gif'];
+    public $oldPhoto = '';
 
-
-    function generatePassword()
+    public function generatePassword()
     {
         do {
             $randomCode = Str::password(10);
@@ -118,13 +125,11 @@ class Admins extends Component
         $this->redirect('/admin/admins');
     }
 
-
     public function blockAdmin($value, BlockAdmin $blockAdmin)
     {
         $blockAdmin->execute($value);
         $this->dispatchBrowserEvent('swal:alert-success');
     }
-
 
     public function render()
     {

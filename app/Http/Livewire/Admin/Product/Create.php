@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Product;
 
 use App\Actions\Product\CreateProduct;
@@ -18,19 +20,28 @@ class Create extends Component
 {
     use WithFileUploads;
 
-    public $step1 = true, $step2 = false, $step3 = false, $step4 = false;
-    public $title = '', $price = '', $discount = '', $long_description = '', $brand_id;
+    public $step1 = true;
+    public $step2 = false;
+    public $step3 = false;
+    public $step4 = false;
+    public $title = '';
+    public $price = '';
+    public $discount = '';
+    public $long_description = '';
+    public $brand_id;
     public $categories = [];
     public $featureValue = [];
     public $features = [];
     public $brands = [];
-    public $photos = [], $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhotos = [];
+    public $photos = [];
+    public $fileExtension;
+    public $extensions = ['jpeg', 'jpg', 'png', 'gif'];
+    public $oldPhotos = [];
     public $value;
     public $images = [];
     public $product;
     public $product_id = 0;
     public $data = [];
-
 
     public function mount()
     {
@@ -41,9 +52,9 @@ class Create extends Component
             $this->features = FeatureValues::query()->where('product_id', $product_id)->get();
             $this->featureValue = $product->featureValue;
             $this->images = File::query()->where(['service_id' => $product_id, 'type' => 'product'])->get();
-//            foreach ($this->images as $key => $value) {
-//                $this->images[] = $this->photos[] = $this->oldPhotos = $value->path;
-//            }
+            //            foreach ($this->images as $key => $value) {
+            //                $this->images[] = $this->photos[] = $this->oldPhotos = $value->path;
+            //            }
         }
         $this->categories = Category::all();
         $this->brands = Brand::all();
@@ -67,7 +78,7 @@ class Create extends Component
 
     public function step1($formData)
     {
-//        dd($formData);
+        //        dd($formData);
         //Laravel | Unique validation where clause
         //https://stackoverflow.com/questions/49211988/laravel-unique-validation-where-clause
         $validator = Validator::make($formData, [
@@ -98,7 +109,7 @@ class Create extends Component
 
     public function step2()
     {
-//        dd($this->photos);
+        //        dd($this->photos);
         if (!$this->oldPhotos) {
             $this->validate([
                 'photos' => 'nullable|max:1024', // 1MB Max
@@ -130,14 +141,14 @@ class Create extends Component
 
         Session::put('step3', $formData);
         $formData = array_merge(Session::get('step1'), Session::get('step3'));
-//        $product->submitInfo($formData, $this->feature_id, $this->value, $this->product_id, $this->photos);
+        //        $product->submitInfo($formData, $this->feature_id, $this->value, $this->product_id, $this->photos);
 
         $this->step3 = false;
         $this->step4 = true;
         // $this->redirect('/admin/product/index');
     }
 
-    public function step4($formData, Product $product,CreateProduct $action)
+    public function step4($formData, Product $product, CreateProduct $action)
     {
 
         $featureIds = [];
@@ -162,7 +173,7 @@ class Create extends Component
         Session::put('step4', $formData);
         $allData = array_merge(Session::get('step1'), Session::get('step3'), Session::get('step4'));
         $features = $formData;
-//        $product->submitInfo($allData, $features, $this->product_id, $this->photos);
+        //        $product->submitInfo($allData, $features, $this->product_id, $this->photos);
         $action->execute($allData, $features, $this->product_id, $this->photos);
 
         $this->redirect('/admin/product');

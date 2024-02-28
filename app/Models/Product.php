@@ -1,13 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 class Product extends Model
 {
@@ -34,5 +32,4 @@ class Product extends Model
     {
         return $this->hasMany(Features::class, 'category_id');
     }
-
 }

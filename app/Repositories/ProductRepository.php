@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Repositories;
+declare(strict_types=1);
 
+namespace App\Repositories;
 
 use App\Models\Features;
 use App\Models\FeatureValues;
@@ -80,7 +81,7 @@ class ProductRepository
             );
         }
         //insert images to server and database
-//        $this->imageResizing($file, $product);
+        //        $this->imageResizing($file, $product);
         return $product;
     }
 }

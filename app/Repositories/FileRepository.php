@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories;
 
 use App\Models\File;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File as IlluminateFile;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\File as IlluminateFile;
 
 class FileRepository
 {
@@ -140,7 +142,7 @@ class FileRepository
         ])->pluck('file')->first();
 
         if ($image != $adminFileName && $adminId != 0) {
-//            unlink($adminFileName);
+            //            unlink($adminFileName);
             $extension = $image->extension();
             $image_name = 'image_admins_' . $adminId . '_' . '_admins_' . Str::random(10) . time() . '.' . $extension;
             $path = 'images/admins/' . $adminId . '/' . $image_name;

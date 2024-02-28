@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Delivery;
 
 use App\Repositories\DeliveryRepository;
@@ -8,8 +10,7 @@ class ShowDelivery
 {
     public function __construct(
         private readonly DeliveryRepository $deliveryRepository,
-    )
-    {
+    ) {
     }
 
     public function execute($value)

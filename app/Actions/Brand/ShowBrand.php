@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Brand;
+
 use App\Repositories\BrandRepository;
 
 class ShowBrand
@@ -10,7 +13,8 @@ class ShowBrand
     ) {
     }
 
-    public function execute($value) {
+    public function execute($value)
+    {
 
         $brand = $this->brandRepository->findById($value);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Category;
 
 use App\Repositories\CategoryRepository;
@@ -11,8 +13,7 @@ class CreateCategory
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
         private readonly FileRepository     $fileRepository,
-    )
-    {
+    ) {
     }
 
     public function execute($formData, $cat_id, $image): void

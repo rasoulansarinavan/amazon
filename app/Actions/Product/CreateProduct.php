@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Product;
 
 use App\Repositories\FileRepository;
@@ -11,8 +13,7 @@ class CreateProduct
     public function __construct(
         private readonly ProductRepository $productRepository,
         private readonly FileRepository    $fileRepository,
-    )
-    {
+    ) {
     }
 
     public function execute($allData, $features, $product_id, $photos): void

@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Comment;
 
-use App\Actions\Comment\AnswerComment;
 use App\Actions\Comment\EditComment;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
@@ -10,9 +11,12 @@ use Livewire\Component;
 
 class Edit extends Component
 {
-    public $comment, $body = '', $commentId;
+    public $comment;
+    public $body = '';
+    public $commentId;
 
-    public $product_id, $parent_id;
+    public $product_id;
+    public $parent_id;
 
     public function mount($id)
     {
@@ -22,7 +26,8 @@ class Edit extends Component
 
     public function editComment($formData, Comment $comments, EditComment $action)
     {
-        $validator = Validator::make($formData,
+        $validator = Validator::make(
+            $formData,
             [
                 'body' => 'required',
             ],

@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 /**
  * @property-read int $id
  * @property int $category_id
@@ -22,7 +25,7 @@ class Category extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id','id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function subCategories()
