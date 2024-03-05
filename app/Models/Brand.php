@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property-read int $id
@@ -20,7 +21,10 @@ class Brand extends Model
     protected $guarded = [];
     protected $with = ['image'];
 
-    public function image()
+    /**
+     * @return BelongsTo<File, Brand>
+     */
+    public function image(): BelongsTo
     {
         return $this->belongsTo(File::class, 'id', 'service_id')->where('type', '=', 'brand');
     }
