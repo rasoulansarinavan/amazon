@@ -10,11 +10,17 @@ class EditCategory
 {
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
-    )
-    {
+    ) {
     }
 
-    public $file, $oldPhoto, $title, $category_id, $icon, $description, $user_level_id, $cat_id;
+    public $file;
+    public $oldPhoto;
+    public $title;
+    public $category_id;
+    public $icon;
+    public $description;
+    public $user_level_id;
+    public $cat_id;
 
     public function execute($value): void
     {

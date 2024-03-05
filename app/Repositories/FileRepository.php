@@ -107,7 +107,7 @@ class FileRepository
         }
 
         foreach ($photos as $item) {
-            $image_name = str_replace(' ', '_', 'product') . '_' . time(). '.' . $item->extension();
+            $image_name = str_replace(' ', '_', 'product') . '_' . time() . '.' . $item->extension();
 
             Image::make($item)->save($path_thumbnail . '/' . $image_name, 95);
             Image::make($item)->save($path_large . '/' . $image_name, 75);

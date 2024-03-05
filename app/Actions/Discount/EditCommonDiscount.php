@@ -10,11 +10,16 @@ class EditCommonDiscount
 {
     public function __construct(
         private readonly DiscountRepository $discountRepository
-    )
-    {
+    ) {
     }
 
-    public $title, $percentage, $discount_ceiling, $minimal_order_amount, $start_date, $end_date, $commonId;
+    public $title;
+    public $percentage;
+    public $discount_ceiling;
+    public $minimal_order_amount;
+    public $start_date;
+    public $end_date;
+    public $commonId;
 
     public function execute($value): void
     {

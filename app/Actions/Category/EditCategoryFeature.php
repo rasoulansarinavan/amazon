@@ -10,11 +10,12 @@ class EditCategoryFeature
 {
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
-    )
-    {
+    ) {
     }
 
-    public $title, $category_id, $feature_id;
+    public $title;
+    public $category_id;
+    public $feature_id;
 
     public function execute($value): void
     {

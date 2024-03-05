@@ -12,7 +12,15 @@ class EditAdmin
         private readonly AdminRepository $adminRepository
     ) {
     }
-    public $file,$image,$oldPhoto,$name,$email,$mobile,$password,$adminId;
+    public $file;
+    public $image;
+    public $oldPhoto;
+    public $name;
+    public $email;
+    public $mobile;
+    public $password;
+    public $adminId;
+
     public function execute($value): void
     {
         $admin = $this->adminRepository->findById($value);
