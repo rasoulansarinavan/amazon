@@ -19,7 +19,7 @@ class CreateProduct
     public function execute($allData, $features, $product_id, $photos): void
     {
         DB::transaction(function () use ($allData, $features, $product_id, $photos) {
-            $product = $this->productRepository->submitInfo($allData, $features, $product_id, $photos);
+            $product = $this->productRepository->submitInfo($allData, $features, $product_id);
             $this->fileRepository->imageResizing($photos, $product->id);
         });
     }

@@ -12,6 +12,7 @@ use Livewire\Component;
 class Edit extends Component
 {
     public $product_id;
+    public $product;
     public $sold_number;
     public $frozen_number;
     public $marketable_number;

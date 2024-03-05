@@ -38,6 +38,11 @@ class CategoryRepository
         File::query()->where(['type' => 'category', 'service_id' => $id])->delete();
     }
 
+    public function deleteFeatureById($value)
+    {
+        Features::query()->where('id', $value)->delete();
+    }
+
     public function saveCategory($formData, $cat_id): Category
     {
         $category = Category::query()->updateOrCreate(

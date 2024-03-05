@@ -42,6 +42,7 @@ class Create extends Component
     public $product;
     public $product_id = 0;
     public $data = [];
+    public $feature_id;
 
     public function mount()
     {

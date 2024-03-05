@@ -10,10 +10,13 @@ class EditDelivery
 {
     public function __construct(
         private readonly DeliveryRepository $deliveryRepository,
-    ) {
+    )
+    {
     }
 
-    public function execute($value)
+    public $name, $amount, $delivery_time, $description, $delivery_id;
+
+    public function execute($value):void
     {
 
         $delivery = $this->deliveryRepository->findById($value);

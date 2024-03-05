@@ -12,8 +12,8 @@ class EditAdmin
         private readonly AdminRepository $adminRepository
     ) {
     }
-
-    public function execute($value)
+    public $file,$image,$oldPhoto,$name,$email,$mobile,$password,$adminId;
+    public function execute($value): void
     {
         $admin = $this->adminRepository->findById($value);
         $image = $this->adminRepository->findFileById($value);

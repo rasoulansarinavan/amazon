@@ -10,10 +10,13 @@ class EditBrand
 {
     public function __construct(
         private readonly BrandRepository $brandRepository,
-    ) {
+    )
+    {
     }
 
-    public function execute($value)
+    public $file, $oldPhoto, $persian_name, $original_name, $brand_id;
+
+    public function execute($value): void
     {
 
         $brand = $this->brandRepository->findById($value);

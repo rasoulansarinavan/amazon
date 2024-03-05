@@ -10,10 +10,13 @@ class EditCategory
 {
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
-    ) {
+    )
+    {
     }
 
-    public function execute($value)
+    public $file, $oldPhoto, $title, $category_id, $icon, $description, $user_level_id, $cat_id;
+
+    public function execute($value): void
     {
 
         $category = $this->categoryRepository->findById($value);
