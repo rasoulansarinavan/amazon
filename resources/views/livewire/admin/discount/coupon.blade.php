@@ -52,7 +52,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="code" id="code" value="{{@$code}}"
                                            class="form-control @error('code') error-input-border @enderror"
@@ -68,7 +68,7 @@
                             </div>
 
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <select wire:change="changeType($event.target.value)"
                                             class="js-states" name="type"
@@ -89,7 +89,7 @@
                             </div>
 
                             @if(@$users)
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                     <div class="field-wrapper" wire:ignore>
                                         <select class="js-states" name="user_id"
                                                 title="Select user"
@@ -111,7 +111,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <select class="js-states" name="amount_type"
                                             title="Select coupon type"
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="amount" id="amount" value="{{@$amount}}"
                                            class="form-control @error('amount') error-input-border @enderror"
@@ -144,7 +144,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="discount_ceiling" id="discount_ceiling" value="{{@$discount_ceiling}}"
                                            class="form-control @error('discount_ceiling') error-input-border @enderror"
@@ -160,7 +160,7 @@
                             </div>
 
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="start_date" id="start_date" value="{{@$start_date}}"
                                            class="form-control d-none @error('start_date') error-input-border @enderror"
@@ -175,7 +175,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="end_date" id="end_date" value="{{@$end_date}}"
                                            class="form-control d-none @error('end_date') error-input-border @enderror"

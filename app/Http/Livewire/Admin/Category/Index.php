@@ -161,16 +161,16 @@ class Index extends Component
     public function render()
     {
         $categories = Category::query()->where('category_id', '=', 0)->get();
-        $allCategory = Category::query()->with('category', 'image')->orderBy('category_id');
+        $allCategory = Category::query()->get();
 
-        if ($this->search) {
-            $allCategory = $allCategory
-                ->Where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('id', 'like', '%' . $this->search . '%');
-        }
+//        if ($this->search) {
+//            $allCategory = $allCategory
+//                ->Where('title', 'like', '%' . $this->search . '%')
+//                ->orWhere('id', 'like', '%' . $this->search . '%');
+//        }
 
         return view('livewire.admin.category.index', [
-            'allCategory' => $allCategory->paginate(10),
+            'allCategory' => $allCategory,
             'categories' => $categories
         ])->layout('layouts.app-admin');
     }

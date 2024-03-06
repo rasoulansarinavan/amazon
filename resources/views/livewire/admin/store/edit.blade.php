@@ -58,7 +58,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 ma-t">
                                     <div class="field-wrapper">
                                         <input name="frozen_number" id="frozen_number" value="{{@$frozen_number}}"
                                                wire:model.defer="frozen_number"
@@ -74,7 +74,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 ma-t">
                                     <div class="field-wrapper">
                                         <input name="sold_number" id="sold_number" value="{{@$sold_number}}"
                                                wire:model.defer="sold_number"

@@ -53,7 +53,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="percentage" id="percentage" value="{{@$percentage}}"
                                            class="form-control @error('percentage') error-input-border @enderror"
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="discount_ceiling" id="discount_ceiling" value="{{@$discount_ceiling}}"
                                            class="form-control @error('discount_ceiling') error-input-border @enderror"
@@ -82,7 +82,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="minimal_order_amount" id="minimal_order_amount"
                                            value="{{@$minimal_order_amount}}"
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="start_date" id="start_date" value="{{@$start_date}}"
                                            class="form-control d-none @error('start_date') error-input-border @enderror"
@@ -113,7 +113,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="end_date" id="end_date" value="{{@$end_date}}"
                                            class="form-control d-none @error('end_date') error-input-border @enderror"

@@ -112,15 +112,15 @@ class Index extends Component
     public function render()
     {
         $brands = Brand::query()->get();
-        $allBrands = Brand::query()->with('image')->orderBy('id');
+        $allBrands = Brand::query()->get();
 
-        if ($this->search) {
-            $allBrands = $allBrands
-                ->Where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('id', 'like', '%' . $this->search . '%');
-        }
+//        if ($this->search) {
+//            $allBrands = $allBrands
+//                ->Where('title', 'like', '%' . $this->search . '%')
+//                ->orWhere('id', 'like', '%' . $this->search . '%');
+//        }
         return view('livewire.admin.brand.index', [
-            'allBrands' => $allBrands->paginate(10),
+            'allBrands' => $allBrands,
             'brands' => $brands
         ])->layout('layouts.app-admin');
     }
