@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Product;
 
 use App\Repositories\ProductRepository;
@@ -8,8 +10,7 @@ class ShowProduct
 {
     public function __construct(
         private readonly ProductRepository $productRepository,
-    )
-    {
+    ) {
     }
 
     public function execute($value): void

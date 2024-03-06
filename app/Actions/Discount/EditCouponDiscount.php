@@ -10,11 +10,19 @@ class EditCouponDiscount
 {
     public function __construct(
         private readonly DiscountRepository $discountRepository
-    )
-    {
+    ) {
     }
 
-    public $title, $code, $amount, $amount_type, $discount_ceiling, $type, $start_date, $end_date, $user_id, $couponId;
+    public $title;
+    public $code;
+    public $amount;
+    public $amount_type;
+    public $discount_ceiling;
+    public $type;
+    public $start_date;
+    public $end_date;
+    public $user_id;
+    public $couponId;
 
     public function execute($value)
     {

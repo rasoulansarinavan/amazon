@@ -25,7 +25,7 @@ class Coupon extends Component
     public $end_date;
     public $user_id;
     public $couponId;
-    public  $users;
+    public $users;
     protected $listeners = ['delete'];
 
     public function changeType($value)

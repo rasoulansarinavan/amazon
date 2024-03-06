@@ -6,6 +6,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property-read int $id
@@ -13,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string $icon
  * @property string $description
+ * @property-read Category $category
  * @property-read File $image
  */
 
@@ -23,18 +26,27 @@ class Category extends Model
     protected $guarded = [];
     protected $with = ['image'];
 
-    public function category()
+    /**
+     * @return BelongsTo<Category, Category>
+     */
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function subCategories()
+    /**
+     * @return HasMany<Category>
+     */
+    public function subCategories(): HasMany
     {
         return $this->hasMany(Category::class, 'category_id');
     }
 
-    public function image()
+    /**
+     * @return BelongsTo<File, Category>
+     */
+    public function image(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\File::class, 'id', 'service_id')->where('type', '=', 'category');
+        return $this->belongsTo(File::class, 'id', 'service_id')->where('type', '=', 'category');
     }
 }
