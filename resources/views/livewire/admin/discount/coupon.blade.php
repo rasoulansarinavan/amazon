@@ -110,6 +110,8 @@
                                         @endforeach
                                     </div>
                                 </div>
+                            @elseif(@$users == null)
+                                <span></span>
                             @endif
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>

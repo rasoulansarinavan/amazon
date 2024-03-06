@@ -32,6 +32,8 @@ class Coupon extends Component
     {
         if ($value == 1) {
             $this->users = User::query()->get();
+        } elseif ($value == 0) {
+            $this->users = null;
         }
     }
 
