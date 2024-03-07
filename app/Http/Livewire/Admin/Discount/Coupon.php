@@ -39,6 +39,12 @@ class Coupon extends Component
 
     public function saveCoupon($formData, Coupons $coupons, CreateCouponDiscount $action)
     {
+        $realTimestampStart = substr($formData['start_date'], 0, 10);
+        $formData['start_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
+
+        $realTimestampStart = substr($formData['end_date'], 0, 10);
+        $formData['end_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
+
         $validator = Validator::make(
             $formData,
             [
@@ -48,14 +54,16 @@ class Coupon extends Component
                 'amount_type' => 'required|integer',
                 'discount_ceiling' => 'integer',
                 'type' => 'required|integer',
-                'start_date' => 'required|integer',
-                'end_date' => 'required|integer',
+                'start_date' => 'required|date|after:today',
+                'end_date' => 'required|date|after:start_date',
                 'user_id' => 'nullable|integer',
             ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',
                 '*.string' => 'فیلد بایذ رشته باشد',
+                '*.date' => 'فیلد بایذ تاریخ باشد',
+                '*.after' => 'تاریخ باید از امروز به بعد باشد',
 
             ]
         );
