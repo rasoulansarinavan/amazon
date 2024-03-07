@@ -25,6 +25,12 @@ class Common extends Component
 
     public function saveCommon($formData, Commons $commons, CreateCommonDiscount $action)
     {
+        $realTimestampStart = substr($formData['start_date'], 0, 10);
+        $formData['start_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
+
+        $realTimestampStart = substr($formData['end_date'], 0, 10);
+        $formData['end_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
+
         $validator = Validator::make(
             $formData,
             [
@@ -32,13 +38,15 @@ class Common extends Component
                 'percentage' => 'required|integer',
                 'discount_ceiling' => 'required|integer',
                 'minimal_order_amount' => 'required|integer',
-                'start_date' => 'required',
-                'end_date' => 'required',
+                'start_date' => 'required|date|after:today',
+                'end_date' => 'required|date|after:start_date',
             ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',
                 '*.string' => 'فیلد بایذ رشته باشد',
+                '*.date' => 'فیلد بایذ تاریخ باشد',
+                '*.after' => 'تاریخ باید از امروز به بعد باشد',
             ]
         );
         $validator->validate();

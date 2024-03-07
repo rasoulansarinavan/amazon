@@ -11,11 +11,6 @@ class DiscountRepository
 {
     public function saveCommon($formData, $commonId): Common
     {
-        $realTimestampStart = substr($formData['start_date'], 0, 10);
-        $formData['start_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
-        $realTimestampStart = substr($formData['end_date'], 0, 10);
-        $formData['end_date'] = date('Y-m-d H:i:s', (int)$realTimestampStart);
-
         $common = Common::query()->updateOrCreate(
             [
                 'id' => $commonId
