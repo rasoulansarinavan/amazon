@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories;
 
 use App\Models\File;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File as IlluminateFile;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\File as IlluminateFile;
 
 class FileRepository
 {
@@ -21,24 +23,24 @@ class FileRepository
             $image_name = 'image_brands_' . $brandId . '_' . '_brands_' . Str::random(10) . time() . '.' . $extension;
             $path = 'images/brands/' . $brandId . '/' . $image_name;
             Image::make($image)->save(public_path('images/brands/' . $brandId . '/' . $image_name), 40);
-            $this->insertImageToFileTable1($path, $brandId, $brandId);
+            $this->insertImageToFileTable1($path, $brandId);
         }
 
         $adminFileName = File::query()->where([
             'service_id' => $brandId,
             'type' => 'brand',
-        ])->pluck('file')->first();
+        ])->first();
 
         if ($image != $adminFileName && $brandId != 0) {
             $extension = $image->extension();
             $image_name = 'image_brands_' . $brandId . '_' . '_brands_' . Str::random(10) . time() . '.' . $extension;
             $path = 'images/brands/' . $brandId . '/' . $image_name;
             Image::make($image)->save(public_path('images/brands/' . $brandId . '/' . $image_name), 40);
-            $this->insertImageToFileTable1($path, $brandId, $brandId);
+            $this->insertImageToFileTable1($path, $brandId);
         }
     }
 
-    public function insertImageToFileTable1($path, $brandId, $brand_id)
+    public function insertImageToFileTable1($path, $brandId)
     {
 
         return File::query()->updateOrCreate(
@@ -69,14 +71,14 @@ class FileRepository
         $adminFileName = File::query()->where([
             'service_id' => $categoryId,
             'type' => 'category',
-        ])->pluck('file')->first();
+        ])->first();
 
         if ($image != $adminFileName && $categoryId != 0) {
             $extension = $image->extension();
             $image_name = 'image_categories_' . $categoryId . '_' . '_categories_' . Str::random(10) . time() . '.' . $extension;
             $path = 'images/categories/' . $categoryId . '/' . $image_name;
             Image::make($image)->save(public_path('images/categories/' . $categoryId . '/' . $image_name), 40);
-            $this->insertImageToFileTable2($path, $categoryId, $categoryId);
+            $this->insertImageToFileTable2($path, $categoryId);
         }
     }
 
@@ -105,7 +107,7 @@ class FileRepository
         }
 
         foreach ($photos as $item) {
-            $image_name = str_replace(' ', '_', 'product') . '_' . time() + rand(0, 12312) . '.' . $item->extension();
+            $image_name = str_replace(' ', '_', 'product') . '_' . time() . '.' . $item->extension();
 
             Image::make($item)->save($path_thumbnail . '/' . $image_name, 95);
             Image::make($item)->save($path_large . '/' . $image_name, 75);
@@ -137,10 +139,10 @@ class FileRepository
         $adminFileName = File::query()->where([
             'user_id' => $adminId,
             'type' => 'admin',
-        ])->pluck('file')->first();
+        ])->first();
 
         if ($image != $adminFileName && $adminId != 0) {
-//            unlink($adminFileName);
+            //            unlink($adminFileName);
             $extension = $image->extension();
             $image_name = 'image_admins_' . $adminId . '_' . '_admins_' . Str::random(10) . time() . '.' . $extension;
             $path = 'images/admins/' . $adminId . '/' . $image_name;

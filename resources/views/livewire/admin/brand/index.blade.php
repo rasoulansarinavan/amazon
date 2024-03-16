@@ -55,7 +55,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                     <div class="field-wrapper">
                                         <input name="original_name" id="original_name" value="{{@$original_name}}"
                                                wire:model.defer="original_name"

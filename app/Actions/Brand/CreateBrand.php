@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Brand;
 
 use App\Repositories\BrandRepository;
@@ -11,7 +13,8 @@ class CreateBrand
     public function __construct(
         private readonly BrandRepository $brandRepository,
         private readonly FileRepository $fileRepository,
-    ) {}
+    ) {
+    }
 
     public function execute($formData, $brand_id, $image): void
     {

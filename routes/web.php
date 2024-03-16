@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Livewire\Admin\Dashboard\Index;
-use App\Http\Livewire\Admin\Auth\LoginRegister;
-use Illuminate\Support\Facades\Route;
+declare(strict_types=1);
 
+use App\Http\Livewire\Admin\Dashboard\Index;
+//use App\Http\Livewire\Admin\Auth\LoginRegister;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,14 +12,14 @@ Route::get('/', function () {
 
 
 //Route::namespace('Auth')->group(function () {
-Route::get('login-register', LoginRegister::class)->name('login-register-form');
+//Route::get('login-register', LoginRegister::class)->name('login-register-form');
 //});
 
 /*********** ADMIN PANEL *************/
 
 
 Route::group(['prefix' => 'admin'
-//    , 'middleware' => 'auth:admin'
+    //    , 'middleware' => 'auth:admin'
 ], function () {
     Route::name('admin.')->group(function () {
         Route::get('/dashboard', Index::class)->name('dashboard');

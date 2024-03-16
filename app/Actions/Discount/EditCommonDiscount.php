@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Discount;
 
 use App\Repositories\DiscountRepository;
@@ -8,11 +10,18 @@ class EditCommonDiscount
 {
     public function __construct(
         private readonly DiscountRepository $discountRepository
-    )
-    {
+    ) {
     }
 
-    public function execute($value)
+    public $title;
+    public $percentage;
+    public $discount_ceiling;
+    public $minimal_order_amount;
+    public $start_date;
+    public $end_date;
+    public $commonId;
+
+    public function execute($value): void
     {
         $common = $this->discountRepository->findById($value);
         $this->title = $common->title;

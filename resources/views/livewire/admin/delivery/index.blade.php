@@ -54,7 +54,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="amount" id="amount" value="{{@$amount}}"
                                            wire:model.defer="amount"
@@ -69,7 +69,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper">
                                     <input name="delivery_time" id="delivery_time" value="{{@$delivery_time}}"
                                            wire:model.defer="delivery_time"
@@ -84,7 +84,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <textarea name="description" id="description" wire:model.defer="description"
                                               class="form-control @error('description') error-input-border @enderror"
@@ -148,12 +148,12 @@
                                     <tr role="row" class="odd position-relative">
                                         <td>{{$loop->index+1}}</td>
                                         <td>{{ $delivery->name }}</td>
+                                        <td>{{ $delivery->delivery_time }}</td>
                                         @if($delivery->active == 0)
                                             <td class="text-danger">غیر فعال</td>
                                         @elseif($delivery->active == 1)
                                             <td class="text-success">فعال</td>
                                         @endif
-                                        <td>{{ $delivery->delivery_time }}</td>
                                         <td>{{ $delivery->amount }}</td>
                                         <td>
                                             <div class="actions t1" wire:ignore>

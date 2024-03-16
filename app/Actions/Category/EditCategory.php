@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Actions\Category;
+declare(strict_types=1);
 
+namespace App\Actions\Category;
 
 use App\Repositories\CategoryRepository;
 
@@ -9,11 +10,19 @@ class EditCategory
 {
     public function __construct(
         private readonly CategoryRepository $categoryRepository,
-    )
-    {
+    ) {
     }
 
-    public function execute($value)
+    public $file;
+    public $oldPhoto;
+    public $title;
+    public $category_id;
+    public $icon;
+    public $description;
+    public $user_level_id;
+    public $cat_id;
+
+    public function execute($value): void
     {
 
         $category = $this->categoryRepository->findById($value);

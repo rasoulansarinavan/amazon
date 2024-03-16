@@ -39,7 +39,7 @@
                     <div class="row gutters">
                         <form wire:submit.prevent="saveCoupon(Object.fromEntries(new FormData($event.target)))">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                                <div class="field-wrapper">
                                     <input name="title" id="title" value="{{@$title}}"
                                            class="form-control @error('title') error-input-border @enderror"
                                            type="text">
@@ -52,8 +52,8 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper">
                                     <input name="code" id="code" value="{{@$code}}"
                                            class="form-control @error('code') error-input-border @enderror"
                                            type="text">
@@ -68,8 +68,8 @@
                             </div>
 
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" >
                                     <select wire:change="changeType($event.target.value)"
                                             class="js-states" name="type"
                                             title="Select Product Category"
@@ -89,8 +89,8 @@
                             </div>
 
                             @if(@$users)
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="field-wrapper" wire:ignore>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                    <div class="field-wrapper" >
                                         <select class="js-states" name="user_id"
                                                 title="Select user"
                                                 data-live-search="true">
@@ -110,9 +110,11 @@
                                         @endforeach
                                     </div>
                                 </div>
+                            @elseif(@$users == null)
+                                <span></span>
                             @endif
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" >
                                     <select class="js-states" name="amount_type"
                                             title="Select coupon type"
                                             data-live-search="true">
@@ -130,8 +132,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" >
                                     <input name="amount" id="amount" value="{{@$amount}}"
                                            class="form-control @error('amount') error-input-border @enderror"
                                            type="text">
@@ -144,7 +146,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
                                 <div class="field-wrapper" wire:ignore>
                                     <input name="discount_ceiling" id="discount_ceiling" value="{{@$discount_ceiling}}"
                                            class="form-control @error('discount_ceiling') error-input-border @enderror"
@@ -160,8 +162,8 @@
                             </div>
 
 
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" >
                                     <input name="start_date" id="start_date" value="{{@$start_date}}"
                                            class="form-control d-none @error('start_date') error-input-border @enderror"
                                            type="text">
@@ -175,8 +177,8 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="field-wrapper" wire:ignore>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ma-t">
+                                <div class="field-wrapper" >
                                     <input name="end_date" id="end_date" value="{{@$end_date}}"
                                            class="form-control d-none @error('end_date') error-input-border @enderror"
                                            type="text">

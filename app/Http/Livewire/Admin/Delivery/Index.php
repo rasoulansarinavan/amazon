@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Delivery;
 
 use App\Actions\Delivery\CreateDelivery;
@@ -16,19 +18,24 @@ class Index extends Component
     use WithPagination;
 
     protected $listeners = ['delete'];
-    public $name = '', $amount = '', $delivery_time = '', $description = '';
+    public $name = '';
+    public $amount = '';
+    public $delivery_time = '';
+    public $description = '';
     public $delivery_id;
     public $search = '';
     public $delivery;
 
     public function saveDelivery($formData, delivery $deliveries, CreateDelivery $action)
     {
-        $validator = Validator::make($formData, [
-            'name' => 'required |string',
-            'amount' => 'required |integer',
-            'delivery_time' => 'required | integer',
-            'description' => 'string',
-        ],
+        $validator = Validator::make(
+            $formData,
+            [
+                'name' => 'required |string',
+                'amount' => 'required |integer',
+                'delivery_time' => 'required | integer',
+                'description' => 'string',
+            ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',
@@ -45,7 +52,6 @@ class Index extends Component
         $this->delivery_time = '';
         $this->description = '';
     }
-
 
     public function editDelivery($value, EditDelivery $editDelivery)
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Store;
 
 use App\Actions\Store\EditStore;
@@ -9,7 +11,11 @@ use Livewire\Component;
 
 class Edit extends Component
 {
-    public $product_id, $sold_number, $frozen_number, $marketable_number;
+    public $product_id;
+    public $product;
+    public $sold_number;
+    public $frozen_number;
+    public $marketable_number;
 
     public function mount($id)
     {
@@ -22,11 +28,13 @@ class Edit extends Component
 
     public function edit($formData, Product $product, EditStore $action)
     {
-        $validator = Validator::make($formData, [
-            'sold_number' => 'required|integer',
-            'frozen_number' => 'required|integer',
-            'marketable_number' => 'required|integer',
-        ],
+        $validator = Validator::make(
+            $formData,
+            [
+                'sold_number' => 'required|integer',
+                'frozen_number' => 'required|integer',
+                'marketable_number' => 'required|integer',
+            ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repositories;
 
 use App\Models\Product;
@@ -8,7 +10,7 @@ class StoreRepository
 {
     public function edit($formData, $product_id): Product
     {
-        $product = Product::query()->updateOrCreate(
+        return Product::query()->updateOrCreate(
             [
                 'id' => $product_id
             ],
@@ -19,6 +21,5 @@ class StoreRepository
 
             ]
         );
-        return $product;
     }
 }

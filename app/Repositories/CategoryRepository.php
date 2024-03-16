@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Repositories;
+declare(strict_types=1);
 
+namespace App\Repositories;
 
 use App\Models\Category;
 use App\Models\Features;
@@ -35,6 +36,11 @@ class CategoryRepository
         \Illuminate\Support\Facades\File::deleteDirectory(public_path('images/categories/' . $id));
         Category::query()->where('id', $id)->delete();
         File::query()->where(['type' => 'category', 'service_id' => $id])->delete();
+    }
+
+    public function deleteFeatureById($value)
+    {
+        Features::query()->where('id', $value)->delete();
     }
 
     public function saveCategory($formData, $cat_id): Category

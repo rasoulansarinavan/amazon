@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Comment;
 
 use App\Actions\Comment\AnswerComment;
@@ -9,7 +11,9 @@ use Livewire\Component;
 
 class Answer extends Component
 {
-    public $comment, $body = '', $answerId;
+    public $comment;
+    public $body = '';
+    public $answerId;
 
     public function mount($id)
     {
@@ -18,7 +22,8 @@ class Answer extends Component
 
     public function answer($formData, Comment $comments, AnswerComment $action)
     {
-        $validator = Validator::make($formData,
+        $validator = Validator::make(
+            $formData,
             [
                 'body' => 'required',
             ],

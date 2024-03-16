@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Brand;
 
 use App\Repositories\BrandRepository;
@@ -8,11 +10,16 @@ class EditBrand
 {
     public function __construct(
         private readonly BrandRepository $brandRepository,
-    )
-    {
+    ) {
     }
 
-    public function execute($value)
+    public $file;
+    public $oldPhoto;
+    public $persian_name;
+    public $original_name;
+    public $brand_id;
+
+    public function execute($value): void
     {
 
         $brand = $this->brandRepository->findById($value);

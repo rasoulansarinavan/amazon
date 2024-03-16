@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Admin;
 
 use App\Repositories\AdminRepository;
@@ -8,11 +10,18 @@ class EditAdmin
 {
     public function __construct(
         private readonly AdminRepository $adminRepository
-    )
-    {
+    ) {
     }
+    public $file;
+    public $image;
+    public $oldPhoto;
+    public $name;
+    public $email;
+    public $mobile;
+    public $password;
+    public $adminId;
 
-    public function execute($value)
+    public function execute($value): void
     {
         $admin = $this->adminRepository->findById($value);
         $image = $this->adminRepository->findFileById($value);

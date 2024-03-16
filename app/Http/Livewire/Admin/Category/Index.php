@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Actions\Category\ComingSoonCategory;
@@ -20,10 +22,18 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $title = '', $category_id = '', $icon = '', $user_level_id;
-    public $cat_id, $description = '', $showMoreInputsParentCategory = false;
+    public $title = '';
+    public $category_id = '';
+    public $icon = '';
+    public $user_level_id;
+    public $cat_id;
+    public $description = '';
+    public $showMoreInputsParentCategory = false;
     protected $listeners = ['delete'];
-    public $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhoto = '', $file;
+    public $fileExtension;
+    public $extensions = ['jpeg', 'jpg', 'png', 'gif'];
+    public $oldPhoto = '';
+    public $file;
     public $search = '';
 
     public function getCategoryId($category_id)
@@ -57,13 +67,15 @@ class Index extends Component
     public function saveCategory($formData, Category $categories, CreateCategory $action)
     {
         $formData['file'] = $this->file;
-        $validator = Validator::make($formData, [
-            'title' => 'required',
-            'category_id' => 'required',
-            'icon' => 'string',
-            'description' => 'string',
-            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
-        ],
+        $validator = Validator::make(
+            $formData,
+            [
+                'title' => 'required',
+                'category_id' => 'required',
+                'icon' => 'string',
+                'description' => 'string',
+                'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',
@@ -146,21 +158,20 @@ class Index extends Component
         $this->dispatchBrowserEvent('swal:alert-success');
     }
 
-    function render()
+    public function render()
     {
         $categories = Category::query()->where('category_id', '=', 0)->get();
-        $allCategory = Category::query()->with('category', 'image')->orderBy('category_id');
+        $allCategory = Category::query()->get();
 
-        if ($this->search) {
-            $allCategory = $allCategory
-                ->Where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('id', 'like', '%' . $this->search . '%');
-        }
+//        if ($this->search) {
+//            $allCategory = $allCategory
+//                ->Where('title', 'like', '%' . $this->search . '%')
+//                ->orWhere('id', 'like', '%' . $this->search . '%');
+//        }
 
         return view('livewire.admin.category.index', [
-            'allCategory' => $allCategory->paginate(10),
+            'allCategory' => $allCategory,
             'categories' => $categories
         ])->layout('layouts.app-admin');
     }
-
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Category;
 
 use App\Actions\Category\CreateCategoryFeature;
@@ -12,8 +14,11 @@ use Livewire\Component;
 
 class Feature extends Component
 {
-    public $title = '', $category_id, $feature_id;
-    public $category, $features;
+    public $title = '';
+    public $category_id;
+    public $feature_id;
+    public $category;
+    public $features;
     protected $listeners = ['delete'];
     public $search = '';
 
@@ -23,13 +28,14 @@ class Feature extends Component
         $this->category = Category::query()->where('id', $id)->firstOrFail();
     }
 
-
     public function saveFeature($formData, Features $features, CreateCategoryFeature $action)
     {
-        $validator = Validator::make($formData, [
-            'title' => 'required',
-            'category_id' => 'exists:categories,id',
-        ],
+        $validator = Validator::make(
+            $formData,
+            [
+                'title' => 'required',
+                'category_id' => 'exists:categories,id',
+            ],
             [
                 '*.required' => 'فیلد اجباری است.',
                 'category_id.exists' => 'دسته والد نامعتبر است.'

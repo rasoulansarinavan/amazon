@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Admin;
 
 use App\Repositories\AdminRepository;
@@ -11,8 +13,7 @@ class CreateAdmin
     public function __construct(
         private readonly AdminRepository $adminRepository,
         private readonly FileRepository  $fileRepository,
-    )
-    {
+    ) {
     }
 
     public function execute($formData, $adminId, $image, $password): void

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire\Admin\Brand;
 
 use App\Actions\Brand\CreateBrand;
@@ -17,10 +19,14 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $persian_name = '', $original_name = '';
+    public $persian_name = '';
+    public $original_name = '';
     public $brand_id;
     protected $listeners = ['delete'];
-    public $fileExtension, $extensions = ['jpeg', 'jpg', 'png', 'gif'], $oldPhoto = '', $file;
+    public $fileExtension;
+    public $extensions = ['jpeg', 'jpg', 'png', 'gif'];
+    public $oldPhoto = '';
+    public $file;
     public $search = '';
 
     public function updatedFile()
@@ -40,11 +46,13 @@ class Index extends Component
     public function saveBrand($formData, Brand $brands, CreateBrand $action)
     {
         $formData['file'] = $this->file;
-        $validator = Validator::make($formData, [
-            'persian_name' => 'required',
-            'original_name' => 'required',
-            'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
-        ],
+        $validator = Validator::make(
+            $formData,
+            [
+                'persian_name' => 'required',
+                'original_name' => 'required',
+                'file' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:1024', // 1MB Max
+            ],
             [
                 '*.required' => 'فیلد ضروری',
                 '*.integer' => 'فیلد بایذ عدد باشد',
@@ -104,15 +112,15 @@ class Index extends Component
     public function render()
     {
         $brands = Brand::query()->get();
-        $allBrands = Brand::query()->with('image')->orderBy('id');
+        $allBrands = Brand::query()->get();
 
-        if ($this->search) {
-            $allBrands = $allBrands
-                ->Where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('id', 'like', '%' . $this->search . '%');
-        }
+//        if ($this->search) {
+//            $allBrands = $allBrands
+//                ->Where('title', 'like', '%' . $this->search . '%')
+//                ->orWhere('id', 'like', '%' . $this->search . '%');
+//        }
         return view('livewire.admin.brand.index', [
-            'allBrands' => $allBrands->paginate(10),
+            'allBrands' => $allBrands,
             'brands' => $brands
         ])->layout('layouts.app-admin');
     }
