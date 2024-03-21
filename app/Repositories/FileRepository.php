@@ -164,4 +164,46 @@ class FileRepository
             ]
         );
     }
+
+
+    public function saveBannerFile(int $bannerId, UploadedFile $image): void
+    {
+        $path = public_path() . '/images/banners/' . $bannerId;
+        if (!IlluminateFile::exists($path)) {
+            IlluminateFile::makeDirectory($path);
+        }
+        if ($bannerId == 0 && $image != null) {
+            $extension = $image->extension();
+            $image_name = 'image_banners_' . $bannerId . '_' . '_banners_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/banners/' . $bannerId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/banners/' . $bannerId . '/' . $image_name), 40);
+            $this->insertImageToForbanner($path, $bannerId);
+        }
+
+        $adminFileName = File::query()->where([
+            'service_id' => $bannerId,
+            'type' => 'banner',
+        ])->first();
+
+        if ($image != $adminFileName && $bannerId != 0) {
+            $extension = $image->extension();
+            $image_name = 'image_banners_' . $bannerId . '_' . '_banners_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/banners/' . $bannerId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/banners/' . $bannerId . '/' . $image_name), 40);
+            $this->insertImageToForBanner($path, $bannerId);
+        }
+    }
+
+    public function insertImageToForBanner($path, $bannerId)
+    {
+        return File::query()->updateOrCreate(
+            [
+                'service_id' => $bannerId,
+                'type' => 'banner',
+            ],
+            [
+                'file' => $path,
+            ]
+        );
+    }
 }
