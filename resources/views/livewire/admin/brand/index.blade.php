@@ -119,7 +119,7 @@
                             <div class="field-placeholder">جستجو <span class="text-danger">*</span></div>
                         </div>
                         <div class="d-flex">
-                            {{ $allBrands->links('layouts.pagination-admin') }}
+{{--                            {{ $allBrands->links('layouts.pagination-admin') }}--}}
                         </div>
                     </div>
 
@@ -179,7 +179,7 @@
                             </table>
                         </div>
                     </div>
-                    {{ $allBrands->links('layouts.pagination-admin') }}
+{{--                    {{ $allBrands->links('layouts.pagination-admin') }}--}}
                 </div>
             </div>
         </div>
