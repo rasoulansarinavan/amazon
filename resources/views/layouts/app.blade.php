@@ -1,135 +1,182 @@
-{{--<!doctype html>--}}
-{{--<html lang="en" dir="rtl">--}}
-{{--<head>--}}
-{{--    <meta charset="utf-8">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--}}
-{{--    <meta name="description" content="Responsive Bootstrap4 Dashboard Template">--}}
-{{--    <meta name="author" content="ParkerThemes">--}}
-{{--    <title></title>--}}
-{{--    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">--}}
-{{--    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">--}}
-{{--    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">--}}
-{{--    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">--}}
-{{--    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">--}}
-{{--    <meta name="msapplication-TileColor" content="#ffffff">--}}
-{{--    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">--}}
-{{--    <meta name="theme-color" content="#ffffff">--}}
-{{--    <link rel="stylesheet" href="/profile/css/bootstrap.rtl.min.css">--}}
-{{--    <link rel="stylesheet" href="/backend/fonts/style.css">--}}
-{{--    <link rel="stylesheet" href="/profile/css/main-rtl.css">--}}
-{{--    <link rel="stylesheet" href="/backend/css/toastr.min.css">--}}
-{{--    <link rel="stylesheet" href="/backend/dark/vendor/search-filter/search-filter.css">--}}
-{{--    <link rel="stylesheet" href="/backend/dark/vendor/search-filter/custom-search-filter.css">--}}
-{{--    <link rel="stylesheet" href="/backend/vendor/daterange/daterange.css">--}}
-{{--    <link rel="stylesheet" href="/backend/vendor/bs-select/bs-select.css"/>--}}
-{{--    <link rel="stylesheet" href="/persian-fonts/fontiran.css">--}}
-{{--    <link rel="stylesheet" href="/persian-fonts/style.css">--}}
-{{--    <link rel="stylesheet" href="/backend/dark/vendor/notify/notify-flat.css">--}}
-{{--    <link rel="stylesheet" href="/backend/css/plugins-rtl.css">--}}
-{{--    <link href="/frontend/css/filepond/filepond.css" rel="stylesheet"/>--}}
-{{--    <link href="/frontend/css/filepond/filepond-plugin-image-preview.css" rel="stylesheet"/>--}}
-{{--    <link href="/frontend/css/lightbox.css" rel="stylesheet"/>--}}
-{{--    --}}{{--web-phone--}}
-{{--    <link href="/fonweb/css/jssip-controller.css" rel="stylesheet" type="text/css" />--}}
-{{--    --}}{{--web-phone--}}
+<!DOCTYPE html>
+<html class="rtl" lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <meta name="description" content="Index page">
+    <meta name="keywords" content="index, page">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="frontend/imgs/template/favicon.svg">
+    <link href="frontend/css/style.css?v=2.1" rel="stylesheet">
+    <title>Ecom - Ecom Marketplace Template</title>
+        @livewireStyles
+</head>
+<body>
+{{--<livewire:header/>--}}
 
-{{--    @livewireStyles--}}
+<div class="sidebar-left"><a class="btn btn-open" href="#"></a>
+{{--    <ul class="menu-icons hidden">--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/monitor.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/mobile.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/game.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/clock.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/airpod.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/airpods.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/mouse.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/music-play.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/bluetooth.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/clound.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/electricity.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/cpu.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/devices.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/driver.svg" alt="Ecom"></a></li>--}}
+{{--        <li><a href="#"><img src="frontend/imgs/template/lamp.svg" alt="Ecom"></a></li>--}}
+{{--    </ul>--}}
+{{--    <ul class="menu-texts menu-close">--}}
+{{--        <li class="has-children"><a href="shop-grid-2.html"><span class="img-link"><img src="frontend/imgs/template/monitor.svg" alt="Ecom"></span><span class="text-link">Computers &amp; Accessories</span></a>--}}
+{{--            <ul class="sub-menu">--}}
+{{--                <li><a href="shop-grid.html">Computer Accessories</a></li>--}}
+{{--                <li><a href="shop-grid.html">Computer Cases</a></li>--}}
+{{--                <li><a href="shop-grid.html">Laptop</a></li>--}}
+{{--                <li><a href="shop-grid.html">HDD</a></li>--}}
+{{--                <li><a href="shop-grid.html">RAM</a></li>--}}
+{{--                <li><a href="shop-grid.html">Headphone</a></li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+{{--        <li class="has-children"><a href="#"><span class="img-link"><img src="frontend/imgs/template/mobile.svg" alt="Ecom"></span><span class="text-link">Cell Phones</span></a>--}}
+{{--            <ul class="sub-menu">--}}
+{{--                <li><a href="shop-grid.html">Phone Accessories</a></li>--}}
+{{--                <li><a href="shop-grid.html">Phone Cases</a></li>--}}
+{{--                <li><a href="shop-grid.html">Postpaid Phones</a></li>--}}
+{{--                <li><a href="shop-grid.html">Unlocked Phones</a></li>--}}
+{{--                <li><a href="shop-grid.html">Prepaid Phones</a></li>--}}
+{{--                <li><a href="shop-grid.html">Prepaid Plans</a></li>--}}
+{{--                <li><a href="shop-grid.html">Refurbished Phones</a></li>--}}
+{{--                <li><a href="shop-grid.html">Straight Talk</a></li>--}}
+{{--                <li><a href="shop-grid.html">iPhone</a></li>--}}
+{{--                <li><a href="shop-grid.html">Samsung Galaxy</a></li>--}}
+{{--                <li><a href="shop-grid.html">Samsung Galaxy</a></li>--}}
+{{--                <li><a href="shop-grid.html">Samsung Galaxy</a></li>--}}
+{{--                <li><a href="shop-grid.html">Samsung Galaxy</a></li>--}}
+{{--                <li><a href="shop-grid.html">Samsung Galaxy</a></li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+{{--        <li class="has-children"><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/game.svg" alt="Ecom"></span><span class="text-link">Gaming Gatgets</span></a>--}}
+{{--            <ul class="sub-menu">--}}
+{{--                <li><a href="shop-grid.html">Wireless Routers</a></li>--}}
+{{--                <li><a href="shop-grid.html">Cool New Gadgets</a></li>--}}
+{{--                <li><a href="shop-grid.html">Tech and Gadgets</a></li>--}}
+{{--                <li><a href="shop-grid.html">Geek Gifts and Gadgets</a></li>--}}
+{{--                <li><a href="shop-grid.html">Xbox Accessories</a></li>--}}
+{{--                <li><a href="shop-grid.html">PlayStation Accessories</a></li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+{{--        <li class="has-children"><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/clock.svg" alt="Ecom"></span><span class="text-link">Smart watches</span></a>--}}
+{{--            <ul class="sub-menu">--}}
+{{--                <li><a href="shop-grid.html">Smart Watches</a></li>--}}
+{{--                <li><a href="shop-grid.html">Fashion Smart Watches</a></li>--}}
+{{--                <li><a href="shop-grid.html">Smart Bracelets</a></li>--}}
+{{--                <li><a href="shop-grid.html">Pocket Watches</a></li>--}}
+{{--                <li><a href="shop-grid.html">Smart Rings</a></li>--}}
+{{--                <li><a href="shop-grid.html">Other Watches</a></li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/airpods.svg" alt="Ecom"></span><span class="text-link">Wired Headphone</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/mouse.svg" alt="Ecom"></span><span class="text-link">Mouse &amp; Keyboard</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/music-play.svg" alt="Ecom"></span><span class="text-link">Headphone</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/bluetooth.svg" alt="Ecom"></span><span class="text-link">Bluetooth devices</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/clound.svg" alt="Ecom"></span><span class="text-link">Cloud Software</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/electricity.svg" alt="Ecom"></span><span class="text-link">Electric accessories</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/cpu.svg" alt="Ecom"></span><span class="text-link">Mainboard &amp; CPU</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/devices.svg" alt="Ecom"></span><span class="text-link">Desktop PC</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/driver.svg" alt="Ecom"></span><span class="text-link">Speaker</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/airpod.svg" alt="Ecom"></span><span class="text-link">Bluetooth Phone</span></a></li>--}}
+{{--        <li><a href="shop-grid.html"><span class="img-link"><img src="frontend/imgs/template/lamp.svg" alt="Ecom"></span><span class="text-link">Computer Decor</span></a></li>--}}
+{{--    </ul>--}}
+</div>
 
-{{--</head>--}}
-{{--<body>--}}
-{{--<div id="loading-wrapper">--}}
-{{--    <div class="loader-text"><img width="200" src="/frontend/images/alphanewpay-profile.webp" alt=""></div>--}}
-{{--    <div class="lds-ellipsis">--}}
-{{--        <div></div>--}}
-{{--        <div></div>--}}
-{{--        <div></div>--}}
-{{--        <div></div>--}}
+{{$slot}}
+
+{{--<livewire:footer/>--}}
+{{--<div id="preloader-active">--}}
+{{--    <div class="preloader d-flex align-items-center justify-content-center">--}}
+{{--        <div class="preloader-inner position-relative">--}}
+{{--            <div class="text-center"><img class="mb-10" src="frontend/imgs/template/favicon.svg" alt="Ecom">--}}
+{{--                <div class="preloader-dots"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 {{--    </div>--}}
 {{--</div>--}}
-
-
-{{--<div class="page-wrapper">--}}
-
-
-{{--    <livewire:client.profile.menu/>--}}
-
-
-{{--    <div class="main-container">--}}
-{{--        <div class="sidebar-cover"></div>--}}
-
-{{--        <livewire:client.profile.header/>--}}
-
-{{--        {{$slot}}--}}
-
+{{--<div class="topbar">--}}
+{{--    <div class="container-topbar">--}}
+{{--        <div class="menu-topbar-left d-none d-xl-block">--}}
+{{--            <ul class="nav-small">--}}
+{{--                <li><a class="font-xs" href="page-about-us.html">About Us</a></li>--}}
+{{--                <li><a class="font-xs" href="page-careers.html">Careers</a></li>--}}
+{{--                <li><a class="font-xs" href="page-register.html">Open a shop</a></li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="info-topbar text-center d-none d-xl-block"><span class="font-xs color-brand-3">Free shipping for all orders over</span><span--}}
+{{--                class="font-sm-bold color-success"> $75.00</span></div>--}}
+{{--        <div class="menu-topbar-right"><span class="font-xs color-brand-3">Need help? Call Us:</span><span--}}
+{{--                class="font-sm-bold color-success"> + 1800 900</span>--}}
+{{--            <div class="dropdown dropdown-language">--}}
+{{--                <button class="btn dropdown-toggle" id="dropdownPage" type="button" data-bs-toggle="dropdown"--}}
+{{--                        aria-expanded="true" data-bs-display="static"><span--}}
+{{--                        class="dropdown-right font-xs color-brand-3"><img src="frontend/imgs/template/en.svg" alt="Ecom"> English</span>--}}
+{{--                </button>--}}
+{{--                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownPage" data-bs-popper="static">--}}
+{{--                    <li><a class="dropdown-item" href="#"><img src="frontend/imgs/template/flag-en.svg" alt="Ecom">--}}
+{{--                            English</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#"><img src="frontend/imgs/template/flag-fr.svg" alt="Ecom">--}}
+{{--                            Français</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#"><img src="frontend/imgs/template/flag-es.svg" alt="Ecom">--}}
+{{--                            Español</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#"><img src="frontend/imgs/template/flag-pt.svg" alt="Ecom">--}}
+{{--                            Português</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#"><img src="frontend/imgs/template/flag-cn.svg" alt="Ecom"> 中国人</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--            <div class="dropdown dropdown-language">--}}
+{{--                <button class="btn dropdown-toggle" id="dropdownPage2" type="button" data-bs-toggle="dropdown"--}}
+{{--                        aria-expanded="true" data-bs-display="static"><span--}}
+{{--                        class="dropdown-right font-xs color-brand-3">USD</span></button>--}}
+{{--                <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownPage2"--}}
+{{--                    data-bs-popper="static">--}}
+{{--                    <li><a class="dropdown-item active" href="#">USD</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#">EUR</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#">AUD</a></li>--}}
+{{--                    <li><a class="dropdown-item" href="#">SGP</a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 {{--    </div>--}}
-{{--    --}}{{--@include('layouts.webrtc')--}}
 {{--</div>--}}
-
-{{--<!-- Required jQuery first, then Bootstrap Bundle JS -->--}}
-{{--<script src="/backend/js/jquery.min.js"></script>--}}
-{{--<script src="/backend/js/bootstrap.bundle.min.js"></script>--}}
-{{--<script src="/backend/js/modernizr.js"></script>--}}
-{{--<script src="/backend/js/moment.js"></script>--}}
-{{--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
-{{--<script src="/backend/vendor/slimscroll/slimscroll.min.js"></script>--}}
-{{--<script src="/backend/vendor/slimscroll/custom-scrollbar.js"></script>--}}
-{{--<script src="/backend/vendor/daterange/daterange.js"></script>--}}
-{{--<script src="/backend/vendor/daterange/custom-daterange.js"></script>--}}
-{{--<script src="/backend/bs-select/bs-select.min.js"></script>--}}
-{{--<script src="/backend/bs-select/bs-select-custom.js"></script>--}}
-{{--<script src="/backend/vendor/rating/raty.js"></script>--}}
-{{--<script src="/backend/vendor/rating/raty-custom.js"></script>--}}
-{{--<script src="/backend/vendor/input-masks/cleave.min.js"></script>--}}
-{{--<script src="/backend/vendor/input-masks/cleave-phone.js"></script>--}}
-{{--<script src="/backend/vendor/input-masks/cleave-custom.js"></script>--}}
-{{--<script src="/backend/dark/js/modernizr.js"></script>--}}
-{{--<script src="/backend/dark/js/moment.js"></script>--}}
-{{--<script src="/backend/dark/js/jquery.easing.1.3.js"></script>--}}
-{{--<script src="/backend/dark/vendor/notify/notify.js"></script>--}}
-{{--<script src="/backend/dark/vendor/notify/notify-custom.js"></script>--}}
-{{--<script src="/backend/js/main.js"></script>--}}
-{{--<script src="/backend/css/sweetalert2@11.js"></script>--}}
-{{--<script src="/frontend/js/lightbox.js"></script>--}}
-{{--web-phone--}}
-{{--<script src="/fonweb/js/callstats.min.js"></script>--}}
-{{--<script src="/fonweb/js/callstats-jssip.min.js"></script>--}}
-{{--<script src="/fonweb/js/jssip-3.3.6.min.js"></script>--}}
-{{--<script src="/fonweb/js/jssip-controller-ob.js"></script>--}}
-{{--<script src="/fonweb/js/jssip-controller.js"></script>--}}
-{{--web-phone--}}
-
-
-{{--<script type="text/javascript">--}}
-{{--    !function () {--}}
-{{--        var i = "QU4I9U", a = window, d = document;--}}
-
-{{--        function g() {--}}
-{{--            var g = d.createElement("script"), s = "https://www.goftino.com/widget/" + i,--}}
-{{--                l = localStorage.getItem("goftino_" + i);--}}
-{{--            g.async = !0, g.src = l ? s + "?o=" + l : s;--}}
-{{--            d.getElementsByTagName("head")[0].appendChild(g);--}}
-{{--        }--}}
-
-{{--        "complete" === d.readyState ? g() : a.attachEvent ? a.attachEvent("onload", g) : a.addEventListener("load", g, !1);--}}
-{{--    }();--}}
-{{--</script>--}}
-
-{{--Added cover to the profile menu when the menu is activated--}}
-{{--<script>--}}
-
-{{--    $("#toggle-sidebar").on('click', function () {--}}
-{{--        $('.sidebar-cover').toggle()--}}
-{{--    });--}}
-{{--</script>--}}
-{{--@stack('script')--}}
-{{--@livewireScripts--}}
-{{--</body>--}}
-{{--</html>--}}
+<script src="frontend/js/vendors/modernizr-3.6.0.min.js"></script>
+<script src="frontend/js/vendors/jquery-3.6.0.min.js"></script>
+<script src="frontend/js/vendors/jquery-migrate-3.3.0.min.js"></script>
+<script src="frontend/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="frontend/js/vendors/waypoints.js"></script>
+<script src="frontend/js/vendors/wow.js"></script>
+<script src="frontend/js/vendors/magnific-popup.js"></script>
+<script src="frontend/js/vendors/perfect-scrollbar.min.js"></script>
+<script src="frontend/js/vendors/select2.min.js"></script>
+<script src="frontend/js/vendors/isotope.js"></script>
+<script src="frontend/js/vendors/scrollup.js"></script>
+<script src="frontend/js/vendors/swiper-bundle.min.js"></script>
+<script src="frontend/js/vendors/noUISlider.js"></script>
+<script src="frontend/js/vendors/slider.js"></script>
+<!-- Count down-->
+<script src="frontend/js/vendors/counterup.js"></script>
+<script src="frontend/js/vendors/jquery.countdown.min.js"></script>
+<!-- Count down--><script src="frontend/js/vendors/jquery.elevatezoom.js"></script>
+<script src="frontend/js/vendors/slick.js"></script>
+<script src="frontend/js/main.js?v=2.1"></script>
+<script src="frontend/js/shop.js?v=1.2.1"></script>
+@livewireScripts
+</body>
+</html>
