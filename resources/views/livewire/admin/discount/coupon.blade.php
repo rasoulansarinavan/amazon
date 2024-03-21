@@ -167,7 +167,7 @@
                                     <input name="start_date" id="start_date" value="{{@$start_date}}"
                                            class="form-control d-none @error('start_date') error-input-border @enderror"
                                            type="text">
-                                    <input type="text" id="start_date_view" class="form-control form-control-sm">
+                                    <input type="text" id="start_date_view" class="form-control form-control-sm" autocomplete="off">
                                     <div class="field-placeholder">تاریخ شروع<span
                                             class="text-danger">*</span>
                                     </div>
@@ -182,7 +182,7 @@
                                     <input name="end_date" id="end_date" value="{{@$end_date}}"
                                            class="form-control d-none @error('end_date') error-input-border @enderror"
                                            type="text">
-                                    <input type="text" id="end_date_view" class="form-control form-control-sm">
+                                    <input type="text" id="end_date_view" class="form-control form-control-sm" autocomplete="off">
                                     <div class="field-placeholder">تاریخ پایان<span
                                             class="text-danger">*</span>
                                     </div>
