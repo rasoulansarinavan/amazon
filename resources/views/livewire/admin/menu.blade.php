@@ -74,20 +74,16 @@
                         </a>
                     </li>
 
-                    <li class="default-sidebar-dropdown @if($rout_name=='admin.discount.amazing' or $rout_name=='admin.discount.common' or $rout_name=='admin.discount.coupon') active @endif">
+                    <li class="default-sidebar-dropdown @if($rout_name=='admin.banner') active @endif">
                         <a href="#">
-                            <i class="icon-users"></i>
-                            <span class="menu-text">مدیریت تخفیف ها</span>
+                            <i class="icon-border_all"></i>
+                            <span class="menu-text">مدیریت بنرها</span>
                         </a>
                         <div class="default-sidebar-submenu">
                             <ul>
                                 <li>
-                                    <a href="{{route('admin.discount.common')}}"
-                                       class="{{$rout_name=='admin.discount.common'?'current-page':''}}">تخفیف عمومی</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('admin.discount.coupon')}}"
-                                       class="{{$rout_name=='admin.discount.coupon'?'current-page':''}}">کوپن تخفیف</a>
+                                    <a href="{{route('admin.banner')}}"
+                                       class="{{$rout_name=='admin.banner'?'current-page':''}}">بنرهای هدر</a>
                                 </li>
                             </ul>
                         </div>
