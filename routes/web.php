@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 /*********** ADMIN PANEL *************/
 
-
 Route::group(['prefix' => 'admin'
     //    , 'middleware' => 'auth:admin'
 ], function () {
