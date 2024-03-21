@@ -71,6 +71,7 @@ class Coupon extends Component
         $this->resetValidation();
         $action->execute($formData, $this->couponId);
         $this->dispatchBrowserEvent('swal:alert-success');
+
         $this->title = '';
         $this->code = '';
         $this->amount = '';
