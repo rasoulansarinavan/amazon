@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 use App\Http\Livewire\Admin\Dashboard\Index;
+
 //use App\Http\Livewire\Admin\Auth\LoginRegister;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', \App\Http\Livewire\Client\Home\Index::class)->name('client.home');
 
 //Route::namespace('Auth')->group(function () {
 //Route::get('login-register', LoginRegister::class)->name('login-register-form');
 //});
+
 
 /*********** ADMIN PANEL *************/
 
@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'
         Route::get('/comments/edit/{id}', \App\Http\Livewire\Admin\Comment\Edit::class)->name('comments.edit');
         Route::get('/discount/common', \App\Http\Livewire\Admin\Discount\Common::class)->name('discount.common');
         Route::get('/discount/coupon', \App\Http\Livewire\Admin\Discount\Coupon::class)->name('discount.coupon');
+        Route::get('/banner', \App\Http\Livewire\Admin\Banner\Index::class)->name('banner');
 
     });
 });
