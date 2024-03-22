@@ -88,6 +88,20 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="default-sidebar-dropdown @if($rout_name=='admin.slider') active @endif">
+                        <a href="#">
+                            <i class="icon-border_all"></i>
+                            <span class="menu-text">مدیریت اسلایدر</span>
+                        </a>
+                        <div class="default-sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="{{route('admin.slider')}}"
+                                       class="{{$rout_name=='admin.slider'?'current-page':''}}">اسلایدر هدر</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="@if($rout_name=='admin.store' or $rout_name=='admin.store.update' or $rout_name=='admin.store.edit') active @endif">
                         <a href="{{route('admin.store')}}" class="current-page">
