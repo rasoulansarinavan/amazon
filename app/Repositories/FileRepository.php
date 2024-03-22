@@ -206,4 +206,45 @@ class FileRepository
             ]
         );
     }
+
+    public function saveSliderFile(int $sliderId, UploadedFile $image): void
+    {
+        $path = public_path() . '/images/sliders/' . $sliderId;
+        if (!IlluminateFile::exists($path)) {
+            IlluminateFile::makeDirectory($path);
+        }
+        if ($sliderId == 0 && $image != null) {
+            $extension = $image->extension();
+            $image_name = 'image_sliders_' . $sliderId . '_' . '_sliders_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/sliders/' . $sliderId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/sliders/' . $sliderId . '/' . $image_name), 40);
+            $this->insertImageToForSlider($path, $sliderId);
+        }
+
+        $adminFileName = File::query()->where([
+            'service_id' => $sliderId,
+            'type' => 'slider',
+        ])->first();
+
+        if ($image != $adminFileName && $sliderId != 0) {
+            $extension = $image->extension();
+            $image_name = 'image_sliders_' . $sliderId . '_' . '_sliders_' . Str::random(10) . time() . '.' . $extension;
+            $path = 'images/sliders/' . $sliderId . '/' . $image_name;
+            Image::make($image)->save(public_path('images/sliders/' . $sliderId . '/' . $image_name), 40);
+            $this->insertImageToForSlider($path, $sliderId);
+        }
+    }
+
+    public function insertImageToForSlider($path, $sliderId)
+    {
+        return File::query()->updateOrCreate(
+            [
+                'service_id' => $sliderId,
+                'type' => 'slider',
+            ],
+            [
+                'file' => $path,
+            ]
+        );
+    }
 }
