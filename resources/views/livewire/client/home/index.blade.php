@@ -567,62 +567,11 @@
     </section>
 
 
-    <section class="section-box mt-0 mb-25">
-        <div class="container">
-            <ul class="list-col-5">
-                <li>
-                    <div class="item-list">
-                        <div class="icon-left"><img src="frontend/imgs/template/delivery.svg" alt="Ecom"></div>
-                        <div class="info-right">
-                            <h5 class="font-lg-bold color-gray-100">Free Delivery</h5>
-                            <p class="font-sm color-gray-500">From all orders over $10</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-list">
-                        <div class="icon-left"><img src="frontend/imgs/template/support.svg" alt="Ecom"></div>
-                        <div class="info-right">
-                            <h5 class="font-lg-bold color-gray-100">Support 24/7</h5>
-                            <p class="font-sm color-gray-500">Shop with an expert</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-list">
-                        <div class="icon-left"><img src="frontend/imgs/template/voucher.svg" alt="Ecom"></div>
-                        <div class="info-right">
-                            <h5 class="font-lg-bold color-gray-100">Gift voucher</h5>
-                            <p class="font-sm color-gray-500">Refer a friend</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-list">
-                        <div class="icon-left"><img src="frontend/imgs/template/return.svg" alt="Ecom"></div>
-                        <div class="info-right">
-                            <h5 class="font-lg-bold color-gray-100">Return &amp; Refund</h5>
-                            <p class="font-sm color-gray-500">Free return over $200</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="item-list">
-                        <div class="icon-left"><img src="frontend/imgs/template/secure.svg" alt="Ecom"></div>
-                        <div class="info-right">
-                            <h5 class="font-lg-bold color-gray-100">Secure payment</h5>
-                            <p class="font-sm color-gray-500">100% Protected</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
     <section class="section-box mt-20">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Most Popular Categories</h3>
+                    <h3>محبوب ترین دسته بندی ها</h3>
                 </div>
             </div>
             <div class="mt-50">
@@ -686,9 +635,7 @@
             <div class="head-main bd-gray-200">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6">
-                        <h3 class="mb-5">Weekly selection</h3>
-                        <p class="font-base color-gray-500">Shop living room furniture, crafted by designers all over
-                            the world</p>
+                        <h3 class="mb-5">برگزیده ماهانه</h3>
                     </div>
                     <div class="col-xl-6 col-lg-6 position-relative">
                         <ul class="nav nav-tabs text-uppercase pl-100" role="tablist">
@@ -2195,9 +2142,7 @@
             <div class="head-main bd-gray-200">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6">
-                        <h3 class="mb-5">Weekly selection</h3>
-                        <p class="font-base color-gray-500">Shop living room furniture, crafted by designers all over
-                            the world</p>
+                        <h3 class="mb-5">برگزیده هفتگی</h3>
                     </div>
                     <div class="col-xl-6 col-lg-6 position-relative">
                         <ul class="nav nav-tabs text-uppercase pl-100" role="tablist">
@@ -3047,8 +2992,7 @@
     <section class="section-box mt-50">
         <div class="container">
             <div class="head-main">
-                <h3 class="mb-5">Latest News &amp; Events</h3>
-                <p class="font-base color-gray-500">From our blog, forum</p>
+                <h3 class="mb-5">آخرین اخبار و رویدادها</h3>
                 <div class="box-button-slider">
                     <div class="swiper-button-next swiper-button-next-group-4"></div>
                     <div class="swiper-button-prev swiper-button-prev-group-4"></div>
