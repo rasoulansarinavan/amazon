@@ -166,7 +166,7 @@
                             <div class="field-placeholder">جستجو <span class="text-danger">*</span></div>
                         </div>
                         <div class="d-flex">
-                            {{ $allCategory->links('layouts.pagination-admin') }}
+{{--                            {{ $allCategory->links('layouts.pagination-admin') }}--}}
                         </div>
                     </div>
 
@@ -261,7 +261,7 @@
                             </table>
                         </div>
                     </div>
-                    {{ $allCategory->links('layouts.pagination-admin') }}
+{{--                    {{ $allCategory->links('layouts.pagination-admin') }}--}}
                 </div>
             </div>
         </div>
