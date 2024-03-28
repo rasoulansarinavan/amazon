@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin'
         Route::get('/discount/coupon', \App\Http\Livewire\Admin\Discount\Coupon::class)->name('discount.coupon');
         Route::get('/banner', \App\Http\Livewire\Admin\Banner\Index::class)->name('banner');
         Route::get('/slider', \App\Http\Livewire\Admin\Slider\Index::class)->name('slider');
+        Route::get('/banner/second', \App\Http\Livewire\Admin\Banner\Second::class)->name('banner.second');
 
     });
 });
