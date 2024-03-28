@@ -10,7 +10,7 @@ class Index extends Component
     public function mount()
     {
         $this->banner = \App\Models\Banner::query()->with('image')->get();
-        $this->categories = Category::query()->with('image','product')->get();
+        $this->categories = Category::query()->with('image')->get();
     }
 
     public function render()
