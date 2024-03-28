@@ -19,23 +19,18 @@
         <div class="main-header">
             <div class="header-left">
                 <div class="header-logo"><a class="d-flex" href="index.html"><img alt="Ecom"
-                                                                                  src="frontend/imgs/template/logo.svg"></a>
+                                                                                  src="/backend/img/amazon.png"></a>
                 </div>
                 <div class="header-search">
                     <div class="box-header-search">
                         <form class="form-search" method="post" action="#">
                             <div class="box-category">
                                 <select class="select-active select2-hidden-accessible">
-                                    <option>All categories</option>
-                                    <option value="Computers Accessories">Computers Accessories</option>
-                                    <option value="Cell Phones">Cell Phones</option>
-                                    <option value="Gaming Gatgets">Gaming Gatgets</option>
-                                    <option value="Smart watches">Smart watches</option>
-                                    <option value="Wired Headphone">Wired Headphone</option>
-                                    <option value="Mouse &amp; Keyboard">Mouse Keyboard</option>
-                                    <option value="Headphone">Headphone</option>
-                                    <option value="Bluetooth devices">Bluetooth devices</option>
-                                    <option value="Cloud Software">Cloud Software</option>
+                                    <option>دسته بندی ها</option>
+                                    @forelse($categories as $category)
+                                        <option value="Computers Accessories">{{$category->title}}</option>
+                                    @empty
+                                    @endforelse
                                 </select>
                             </div>
                             <div class="box-keysearch">
@@ -106,7 +101,7 @@
                                     <li><a href="blog-single-3.html">Blog Single - No sidebar</a></li>
                                 </ul>
                             </li>
-                            <li><a href="page-contact.html">Contact Us</a></li>
+                            <li><a href="page-contact.html">ارتباط با ما</a></li>
                         </ul>
                     </nav>
                     <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span
@@ -536,10 +531,12 @@
                             @forelse($categories as $category)
                                 <div class="swiper-slide">
                                     <div class="card-category">
-                                        <div class="card-image"><a><img src="{{$category->image->file}}" alt="Genz"></a></div>
+                                        <div class="card-image"><a><img src="{{$category->image->file}}" alt="Genz"></a>
+                                        </div>
                                         <div class="card-info"><a href="blog-single.html">
                                                 <h5 class="color-brand-3 mb-5">{{$category->title}}</h5>
-                                                <p class="font-md color-gray-500">{{$category->where('show', 1)->count()}}</p></a></div>
+                                                <p class="font-md color-gray-500">{{$category->where('show', 1)->count()}}</p>
+                                            </a></div>
                                     </div>
                                 </div>
                             @empty
@@ -2898,15 +2895,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-box mt-40">
-        <div class="container">
-            <div class="banner-ads-3">
-                <h5 class="mb-5 color-gray-900">70% off on limited chairs</h5>
-                <p class="font-base color-gray-900 mb-10">Free shipping available for purchases more than $80.</p><a
-                    class="btn btn-brand-3">View Products </a>
             </div>
         </div>
     </section>
