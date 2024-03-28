@@ -517,10 +517,10 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="banner-left">
-{{--                            <img src="{{$banner[0]->image->file}}">--}}
-                            <div class="box-adsolute-banner">
-                                <h5>Office Collection</h5><a class="btn btn-link-brand-2 text-capitalize">Shop Now</a>
-                            </div>
+                        {{--                            <img src="{{$banner[0]->image->file}}">--}}
+                        <div class="box-adsolute-banner">
+                            <h5>Office Collection</h5><a class="btn btn-link-brand-2 text-capitalize">Shop Now</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mb-30">
@@ -573,56 +573,23 @@
                 <div class="col-lg-12">
                     <h3>محبوب ترین دسته بندی ها</h3>
                 </div>
+
             </div>
             <div class="mt-50">
                 <div class="box-swiper">
                     <div class="swiper-container swiper-group-5">
                         <div class="swiper-wrapper pt-5">
-                            <div class="swiper-slide">
-                                <div class="card-category">
-                                    <div class="card-image"><a href-'#'><img
-                                            src="frontend/imgs/page/homepage6/living-room.png" alt="Genz"></a></div>
-                                    <div class="card-info"><a href="blog-single.html">
-                                            <h5 class="color-brand-3 mb-5">Living Room</h5>
-                                            <p class="font-md color-gray-500">156 products</p></a></div>
+                            @forelse($categories as $category)
+                                <div class="swiper-slide">
+                                    <div class="card-category">
+                                        <div class="card-image"><a><img src="{{$category->image->file}}" alt="Genz"></a></div>
+                                        <div class="card-info"><a href="blog-single.html">
+                                                <h5 class="color-brand-3 mb-5">{{$category->title}}</h5>
+                                                <p class="font-md color-gray-500">{{$category->where('show', 1)->count()}}</p></a></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card-category">
-                                    <div class="card-image"><a href-'#'><img
-                                            src="frontend/imgs/page/homepage6/reading-room.png" alt="Genz"></a></div>
-                                    <div class="card-info"><a href="blog-single.html">
-                                            <h5 class="color-brand-3 mb-5">Reading Room</h5>
-                                            <p class="font-md color-gray-500">156 products</p></a></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card-category">
-                                    <div class="card-image"><a href-'#'><img
-                                            src="frontend/imgs/page/homepage6/bed-room.png" alt="Genz"></a></div>
-                                    <div class="card-info"><a href="blog-single.html">
-                                            <h5 class="color-brand-3 mb-5">Bed Room</h5>
-                                            <p class="font-md color-gray-500">156 products</p></a></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card-category">
-                                    <div class="card-image"><a href-'#'><img
-                                            src="frontend/imgs/page/homepage6/kitchen.png" alt="Genz"></a></div>
-                                    <div class="card-info"><a href="blog-single.html">
-                                            <h5 class="color-brand-3 mb-5">Kitchen</h5>
-                                            <p class="font-md color-gray-500">156 products</p></a></div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card-category">
-                                    <div class="card-image"><a href-'#'><img
-                                            src="frontend/imgs/page/homepage6/decoration.png" alt="Genz"></a></div>
-                                    <div class="card-info"><a href="blog-single.html">
-                                            <h5 class="color-brand-3 mb-5">Decorations</h5>
-                                            <p class="font-md color-gray-500">156 products</p></a></div>
-                                </div>
-                            </div>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
